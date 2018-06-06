@@ -1,0 +1,49 @@
+Rasy:
+	-nazwa(klucz)
+	-opis
+	-historia
+	-wskazówki
+Profesje:
+	-nazwa(klucz)
+	-rodzaj
+Umiejętności:
+	-nazwa(klucz)
+	-typ
+	-opis
+Zdolności:
+	-nazwa(klucz)
+	-opis
+Postaci:
+	-id(klucz)
+	-nazwa
+	-płeć
+	-kolor oczu
+	-kolor włosów
+	-wiek
+	-waga
+	-wzrost
+	-znak gwiezdny
+	-znaki szczególne
+	-miejsce urodzenia
+	-rodzina
+	-zaburzenia psychiczne
+	-blizny i rany
+	-historia
+	-czczone bóstwo
+	-dod. info.
+	-xp
+Zaklęcia:
+	-
+Przedmioty:
+	-nazwa
+	-opis
+	-cena
+	-dostępność
+	-obciążenie
+Bronie:
+	-
+Pancerze:
+	-
+Cechy:
+	-nazwa(klucz)
+	-opis
