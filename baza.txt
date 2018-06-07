@@ -29,7 +29,6 @@ POSTACI:
 	-zaburzenia psychiczne
 	-blizny i rany
 	-historia
-	-czczone bóstwo
 	-dod. info.
 	-xp
 ZAKLĘCIA:
@@ -110,8 +109,8 @@ BOGOWIE <---- Charakteryzują -----> UMIEJĘTNOŚCI:
 BOGOWIE <---- Charakteryzują -----> ZDOLNOŚCI:
 			-dod. info
 			
-POSTACI <---- Posiadają ----> RASY
-POSTACI <---- Posiadają ----> PROFESJE
+POSTACI <---- Posiadają ---- RASY
+POSTACI <---- Posiadają ---- PROFESJE
 POSTACI <---- Posiadają ----> ZDOLNOŚCI:
 			-dod. info
 POSTACI <---- Posiadają ----> UMIEJĘTNOŚCI:
@@ -119,13 +118,18 @@ POSTACI <---- Posiadają ----> UMIEJĘTNOŚCI:
 			-dod. info
 POSTACI <---- Posiadają ----> PRZEDMIOTY:
 			-jakość
+			-ilość
 POSTACI <---- Posiadają ----> BRONIE:
 			-jakość
+			-ilość
+			-zaekwipowany
 POSTACI <---- Posiadają ----> PANCERZE:
 			-jakość
+			-ilość
+			-zaekwipowany
 POSTACI <---- Posiadają ----> CECHY:
 			-wartość pocz.
 			-schemat rozwoju
 			-aktualna wartość
 POSTACI <---- Potrafią ----> ZAKLĘCIA
-POSTACI <---- Wyznają ----> BOGOWIE
+POSTACI <---- Wyznają ---- BOGOWIE
