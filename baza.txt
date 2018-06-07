@@ -60,6 +60,7 @@ BRONIE:
 	-cechy
 	-dostępność
 PANCERZE:
+	-id(klucz)
 	-nazwa
 	-cena
 	-obciążenie
