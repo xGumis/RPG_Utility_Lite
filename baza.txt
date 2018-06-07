@@ -1,19 +1,19 @@
-﻿Rasy:
+﻿RASY:
 	-nazwa(klucz)
 	-opis
 	-historia
 	-wskazówki
-Profesje:
+PROFESJE:
 	-nazwa(klucz)
 	-rodzaj
-Umiejętności:
+UMIEJĘTNOŚCI:
 	-nazwa(klucz)
 	-typ
 	-opis
-Zdolności:
+ZDOLNOŚCI:
 	-nazwa(klucz)
 	-opis
-Postaci:
+POSTACI:
 	-id(klucz)
 	-nazwa
 	-płeć
@@ -32,7 +32,7 @@ Postaci:
 	-czczone bóstwo
 	-dod. info.
 	-xp
-Zaklęcia:
+ZAKLĘCIA:
 	-nazwa(klucz)
 	-typ magii
 	-wymagany poziom mocy
@@ -40,14 +40,14 @@ Zaklęcia:
 	-sładniki
 	-czas trwania
 	-opis
-Przedmioty:
+PRZEDMIOTY:
 	-id(klucz)
 	-nazwa
 	-opis
 	-cena
 	-dostępność
 	-obciążenie
-Bronie:
+BRONIE:
 	-id(klucz)
 	-nazwa
 	-zasięg
@@ -59,18 +59,72 @@ Bronie:
 	-siła
 	-cechy
 	-dostępność
-Pancerze:
+PANCERZE:
 	-nazwa
 	-cena
 	-obciążenie
 	-chronione lokacje
 	-PZ
 	-dostępność
-Cechy:
+CECHY:
 	-nazwa(klucz)
 	-opis
-Bogowie:
+BOGOWIE:
 	-nazwa(klucz)
 	-opis
 	-symbol
-	
+
+-----------ZWIĄZKI------------------------
+
+RASY <----- Charakteryzują -----> CECHY:
+			-wartości			
+RASY <----- Charakteryzują -----> UMIEJĘTNOŚCI:
+			-dod. info			
+RASY <----- Charakteryzują ---->ZDOLNOŚCI:
+			-dod. info
+RASY <----- Umożliwiają ----> PROFESJE
+			
+PROFESJE <---- Rozwijają ----> CECHY:
+			-wartości
+PROFESJE <---- Umożliwiają ----> UMIEJĘTNOŚCI:
+			-dod. info
+PROFESJE <---- Umożliwiają ----> ZDOLNOŚCI:
+			-dod. info
+PROFESJE <---- Charakteryzują ----> PRZEDMIOTY
+PROFESJE <---- Charakteryzują ----> BRONIE
+PROFESJE <---- Charakteryzują ----> PANCERZE
+PROFESJE <---- Dążą ----> PROFESJE
+			
+UMIEJĘTNOŚCI <---- Zależą ---- CECHY
+
+ZDOLNOŚCI <----- Wpływają ---- CECHY:
+			-wartość
+			
+ZAKLĘCIA <---- Zależą ----- ZDOLNOŚCI
+ZAKLĘCIA <---- Wspierane ----> PRZEDMIOTY:
+			-bonus
+
+BOGOWIE <---- Charakteryzują -----> UMIEJĘTNOŚCI:
+			-dod. info
+BOGOWIE <---- Charakteryzują -----> ZDOLNOŚCI:
+			-dod. info
+			
+POSTACI <---- Posiadają ----> RASY
+POSTACI <---- Posiadają ----> PROFESJE
+POSTACI <---- Posiadają ----> ZDOLNOŚCI:
+			-dod. info
+POSTACI <---- Posiadają ----> UMIEJĘTNOŚCI:
+			-poziom
+			-dod. info
+POSTACI <---- Posiadają ----> PRZEDMIOTY:
+			-jakość
+POSTACI <---- Posiadają ----> BRONIE:
+			-jakość
+POSTACI <---- Posiadają ----> PANCERZE:
+			-jakość
+POSTACI <---- Posiadają ----> CECHY:
+			-wartość pocz.
+			-schemat rozwoju
+			-aktualna wartość
+POSTACI <---- Potrafią ----> ZAKLĘCIA
+POSTACI <---- Wyznają ----> BOGOWIE
