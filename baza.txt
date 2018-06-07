@@ -1,4 +1,4 @@
-Rasy:
+﻿Rasy:
 	-nazwa(klucz)
 	-opis
 	-historia
@@ -33,17 +33,44 @@ Postaci:
 	-dod. info.
 	-xp
 Zaklęcia:
-	-
+	-nazwa(klucz)
+	-typ magii
+	-wymagany poziom mocy
+	-czas rzucania
+	-sładniki
+	-czas trwania
+	-opis
 Przedmioty:
+	-id(klucz)
 	-nazwa
 	-opis
 	-cena
 	-dostępność
 	-obciążenie
 Bronie:
-	-
+	-id(klucz)
+	-nazwa
+	-zasięg
+	-przeładowanie
+	-opis
+	-cena
+	-obciążnie
+	-kategoria
+	-siła
+	-cechy
+	-dostępność
 Pancerze:
-	-
+	-nazwa
+	-cena
+	-obciążenie
+	-chronione lokacje
+	-PZ
+	-dostępność
 Cechy:
 	-nazwa(klucz)
 	-opis
+Bogowie:
+	-nazwa(klucz)
+	-opis
+	-symbol
+	
