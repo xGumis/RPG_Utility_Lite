@@ -36,7 +36,6 @@ ZAKLĘCIA:
 	-typ magii
 	-wymagany poziom mocy
 	-czas rzucania
-	-sładniki
 	-czas trwania
 	-opis
 PRZEDMIOTY:
