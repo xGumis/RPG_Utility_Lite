@@ -46,8 +46,7 @@ PRZEDMIOTY:
 	-dostępność
 	-obciążenie
 BRONIE:
-	-id(klucz)
-	-nazwa
+	-nazwa(klucz)
 	-zasięg
 	-przeładowanie
 	-opis
@@ -58,8 +57,7 @@ BRONIE:
 	-cechy
 	-dostępność
 PANCERZE:
-	-id(klucz)
-	-nazwa
+	-nazwa(klucz)
 	-cena
 	-obciążenie
 	-chronione lokacje
