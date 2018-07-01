@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBOperator.cs" />
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +55,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\Not-Aggr\Armor.cs" />
+    <Compile Include="Types\Aggregated\Career.cs" />
+    <Compile Include="Types\Aggregated\Character.cs" />
+    <Compile Include="Types\Aggregated\God.cs" />
+    <Compile Include="Types\Not-Aggr\Item.cs" />
+    <Compile Include="Types\Aggregated\Race.cs" />
+    <Compile Include="Types\Aggregated\Skill.cs" />
+    <Compile Include="Types\Aggregated\Spell.cs" />
+    <Compile Include="Types\Not-Aggr\Stat.cs" />
+    <Compile Include="Types\Aggregated\Talent.cs" />
+    <Compile Include="Types\Not-Aggr\Weapon.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,6 +88,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
