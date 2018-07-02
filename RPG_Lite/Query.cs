@@ -208,7 +208,8 @@ namespace RPG_Lite
                     for(int i = 0; i < reader.FieldCount; i++)
                     {
                         var tmp = reader.GetName(i);
-
+                        if (tmp == "nazwa") wr.Name = reader.GetString(i);
+                        else if (tmp == "opis") wr.Description = reader.GetString(i);
                     }
                     var stat = new Types.Stat(reader.GetString(0), reader.GetString(1));
                     list.Add(stat);
