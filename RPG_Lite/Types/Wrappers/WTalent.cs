@@ -10,6 +10,7 @@ namespace RPG_Lite.Types.Wrapper
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public string AdditionalInfo { get; set; }
         public Stat Bonus { get; set; }
     }
 }

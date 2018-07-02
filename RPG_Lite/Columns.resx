@@ -117,76 +117,133 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RECORDS_armor" xml:space="preserve">
-    <value>SELECT * FROM n_uni.pancerze;</value>
+  <data name="Add_Info" xml:space="preserve">
+    <value>dod_info</value>
   </data>
-  <data name="RECORDS_careers" xml:space="preserve">
-    <value>SELECT * FROM n_uni.profesje;</value>
+  <data name="Armor_Cover" xml:space="preserve">
+    <value>chronione_lokacje</value>
   </data>
-  <data name="RECORDS_gods" xml:space="preserve">
-    <value>SELECT * FROM n_uni.bogowie;</value>
+  <data name="Armor_Points" xml:space="preserve">
+    <value>PZ</value>
   </data>
-  <data name="RECORDS_items" xml:space="preserve">
-    <value>SELECT * FROM n_uni.przedmioty;</value>
+  <data name="Availability" xml:space="preserve">
+    <value>dostepnosc</value>
   </data>
-  <data name="RECORDS_races" xml:space="preserve">
-    <value>SELECT * FROM n_uni.rasy;</value>
+  <data name="Career_Type" xml:space="preserve">
+    <value>rodzaj</value>
   </data>
-  <data name="RECORDS_skills" xml:space="preserve">
-    <value>SELECT * FROM n_uni.umiejetnosci;</value>
+  <data name="Con_AdvStat" xml:space="preserve">
+    <value>schemat_rozwoju</value>
   </data>
-  <data name="RECORDS_spells" xml:space="preserve">
-    <value>SELECT * FROM n_uni.zaklecia;</value>
+  <data name="Con_Armor" xml:space="preserve">
+    <value>pancerz</value>
   </data>
-  <data name="RECORDS_stats" xml:space="preserve">
-    <value>SELECT * FROM n_uni.cechy;</value>
+  <data name="Con_AvailCareer" xml:space="preserve">
+    <value>profesja_wyjsciowa</value>
   </data>
-  <data name="RECORDS_talents" xml:space="preserve">
-    <value>SELECT * FROM n_uni.zdolnosci;</value>
+  <data name="Con_Career" xml:space="preserve">
+    <value>profesja</value>
   </data>
-  <data name="RECORDS_weapons" xml:space="preserve">
-    <value>SELECT * FROM n_uni.bronie;</value>
+  <data name="Con_Char" xml:space="preserve">
+    <value>id_postaci</value>
   </data>
-  <data name="show_role" xml:space="preserve">
-    <value>SELECT dbo.Check_Role();</value>
+  <data name="Con_CurrStat" xml:space="preserve">
+    <value>aktualna_wartosc</value>
   </data>
-  <data name="SUPP_god_talent" xml:space="preserve">
-    <value>SELECT l.zdolnosc, l.dod_inf FROM n_uni.bogowie b JOIN n_uni.bog_zdo l ON b.nazwa = l.bog WHERE b.nazwa = '{0}';</value>
+  <data name="Con_God" xml:space="preserve">
+    <value>bog</value>
   </data>
-  <data name="SUPP_career_armor" xml:space="preserve">
-    <value>SELECT l.pancerz FROM n_uni.profesje p JOIN n_uni.pro_pan l ON p.nazwa = l.profesja WHERE p.nazwa = '{0}';</value>
+  <data name="Con_Item" xml:space="preserve">
+    <value>id_przedmiotu</value>
   </data>
-  <data name="SUPP_career_career" xml:space="preserve">
-    <value>SELECT l.profesja_wyjsciowa FROM n_uni.profesje p JOIN n_uni.pro_pro l ON p.nazwa = l.profesja WHERE p.nazwa = '{0}';</value>
+  <data name="Con_Race" xml:space="preserve">
+    <value>rasa</value>
   </data>
-  <data name="SUPP_career_item" xml:space="preserve">
-    <value>SELECT i.nazwa FROM (n_uni.profesje p JOIN n_uni.pro_prz l ON p.nazwa = l.profesja) JOIN n_uni.przedmioty i ON l.id_przedmiotu =i.id WHERE p.nazwa = '{0}'; </value>
+  <data name="Con_Skill" xml:space="preserve">
+    <value>umiejetnosc</value>
   </data>
-  <data name="SUPP_career_skill" xml:space="preserve">
-    <value>SELECT l.umiejetnosc, l.dod_inf FROM n_uni.profesje p JOIN n_uni.pro_umi l ON p.nazwa = l.profesja WHERE p.nazwa = '{0}';</value>
+  <data name="Con_Spell" xml:space="preserve">
+    <value>zaklecie</value>
   </data>
-  <data name="SUPP_career_stat" xml:space="preserve">
-    <value>SELECT l.cecha, l.wartosc FROM n_uni.profesje p JOIN n_uni.pro_cec l ON p.nazwa = l.profesja WHERE p.nazwa = '{0}';</value>
+  <data name="Con_StartStat" xml:space="preserve">
+    <value>wartosc_poczatkowa</value>
   </data>
-  <data name="SUPP_career_talent" xml:space="preserve">
-    <value>SELECT l.zdolnosc, l.dod_inf FROM n_uni.profesje p JOIN n_uni.pro_zdo l ON p.nazwa = l.profesja WHERE p.nazwa = '{0}';</value>
+  <data name="Con_stat" xml:space="preserve">
+    <value>cecha</value>
   </data>
-  <data name="SUPP_carrer_weapon" xml:space="preserve">
-    <value>SELECT l.bron FROM n_uni.profesje p JOIN n_uni.pro_bro l ON p.nazwa = l.profesja WHERE p.nazwa = '{0}';</value>
+  <data name="Con_Talent" xml:space="preserve">
+    <value>zdolnosc</value>
   </data>
-  <data name="SUPP_god_skill" xml:space="preserve">
-    <value>SELECT l.umiejetnosc, l.dod_inf FROM n_uni.bogowie b JOIN n_uni.bog_umi l ON b.nazwa = l.bog WHERE b.nazwa = '{0}';</value>
+  <data name="Con_Weapon" xml:space="preserve">
+    <value>bron</value>
   </data>
-  <data name="SUPP_race_career" xml:space="preserve">
-    <value>SELECT l.profesja FROM n_uni.rasy r JOIN n_uni.ras_pro l ON r.nazwa = l.rasa WHERE r.nazwa = '{0}';</value>
+  <data name="Desc" xml:space="preserve">
+    <value>opis</value>
   </data>
-  <data name="SUPP_race_skill" xml:space="preserve">
-    <value>SELECT l.umiejetnosc, l.dod_inf FROM n_uni.rasy r JOIN n_uni.ras_umi l ON r.nazwa = l.rasa WHERE r.nazwa = '{0}';</value>
+  <data name="Id" xml:space="preserve">
+    <value>id</value>
   </data>
-  <data name="SUPP_race_stat" xml:space="preserve">
-    <value>SELECT l.cecha, l.wartosc FROM n_uni.rasy r JOIN n_uni.ras_cec l ON r.nazwa = l.rasa WHERE r.nazwa = '{0}';</value>
+  <data name="Level" xml:space="preserve">
+    <value>poziom</value>
   </data>
-  <data name="SUPP_race_talent" xml:space="preserve">
-    <value>SELECT l.zdolnosc, l.dod_inf FROM n_uni.rasy r JOIN n_uni.ras_zdo l ON r.nazwa = l.rasa WHERE r.nazwa = '{0}';</value>
+  <data name="Name" xml:space="preserve">
+    <value>nazwa</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>cena</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>jakosc</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>ilosc</value>
+  </data>
+  <data name="Race_History" xml:space="preserve">
+    <value>historia</value>
+  </data>
+  <data name="Race_Tips" xml:space="preserve">
+    <value>wskazowki</value>
+  </data>
+  <data name="Skill_Stat" xml:space="preserve">
+    <value>cecha</value>
+  </data>
+  <data name="Skill_Type" xml:space="preserve">
+    <value>typ</value>
+  </data>
+  <data name="Spell_Cast" xml:space="preserve">
+    <value>czas_rzucania</value>
+  </data>
+  <data name="Spell_Durat" xml:space="preserve">
+    <value>czas_trwania</value>
+  </data>
+  <data name="Spell_Lvl" xml:space="preserve">
+    <value>wymagany_poziom_magii</value>
+  </data>
+  <data name="Spell_MType" xml:space="preserve">
+    <value>typ_magii</value>
+  </data>
+  <data name="Spell_ReqTal" xml:space="preserve">
+    <value>wymagana_zdolnosc</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>wartosc</value>
+  </data>
+  <data name="Weapon_Category" xml:space="preserve">
+    <value>kategoria</value>
+  </data>
+  <data name="Weapon_Dmg" xml:space="preserve">
+    <value>sila</value>
+  </data>
+  <data name="Weapon_Range" xml:space="preserve">
+    <value>zasieg</value>
+  </data>
+  <data name="Weapon_Reload" xml:space="preserve">
+    <value>przeladowanie</value>
+  </data>
+  <data name="Weapon_Treats" xml:space="preserve">
+    <value>cechy</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>obciazenie</value>
   </data>
 </root>

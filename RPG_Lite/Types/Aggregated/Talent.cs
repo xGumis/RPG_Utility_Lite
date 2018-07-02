@@ -10,6 +10,7 @@ namespace RPG_Lite.Types
     {
         public string Name { get; }
         public string Description { get; }
+        public string AdditionalInfo { get; }
         public Stat Bonus { get; }
         public Talent(string name, string desc):base(name)
         {
@@ -25,6 +26,7 @@ namespace RPG_Lite.Types
         }
         public Talent(Wrapper.WTalent wr) : base(wr.Name)
         {
+            this.AdditionalInfo = wr.AdditionalInfo;
             this.Name = wr.Name;
             this.Description = wr.Description;
             this.Bonus = wr.Bonus;

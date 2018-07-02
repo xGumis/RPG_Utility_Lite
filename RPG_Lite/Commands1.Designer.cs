@@ -158,5 +158,122 @@ namespace RPG_Lite {
                 return ResourceManager.GetString("show_role", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.pancerz FROM n_uni.profesje p JOIN n_uni.pro_pan l ON p.nazwa = l.profesja WHERE p.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_career_armor {
+            get {
+                return ResourceManager.GetString("SUPP_career_armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.profesja_wyjsciowa FROM n_uni.profesje p JOIN n_uni.pro_pro l ON p.nazwa = l.profesja WHERE p.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_career_career {
+            get {
+                return ResourceManager.GetString("SUPP_career_career", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT i.nazwa FROM (n_uni.profesje p JOIN n_uni.pro_prz l ON p.nazwa = l.profesja) JOIN n_uni.przedmioty i ON l.id_przedmiotu =i.id WHERE p.nazwa = &apos;{0}&apos;; .
+        /// </summary>
+        internal static string SUPP_career_item {
+            get {
+                return ResourceManager.GetString("SUPP_career_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.umiejetnosc, l.dod_inf FROM n_uni.profesje p JOIN n_uni.pro_umi l ON p.nazwa = l.profesja WHERE p.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_career_skill {
+            get {
+                return ResourceManager.GetString("SUPP_career_skill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.cecha, l.wartosc FROM n_uni.profesje p JOIN n_uni.pro_cec l ON p.nazwa = l.profesja WHERE p.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_career_stat {
+            get {
+                return ResourceManager.GetString("SUPP_career_stat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.zdolnosc, l.dod_inf FROM n_uni.profesje p JOIN n_uni.pro_zdo l ON p.nazwa = l.profesja WHERE p.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_career_talent {
+            get {
+                return ResourceManager.GetString("SUPP_career_talent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.bron FROM n_uni.profesje p JOIN n_uni.pro_bro l ON p.nazwa = l.profesja WHERE p.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_carrer_weapon {
+            get {
+                return ResourceManager.GetString("SUPP_carrer_weapon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.umiejetnosc, l.dod_inf FROM n_uni.bogowie b JOIN n_uni.bog_umi l ON b.nazwa = l.bog WHERE b.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_god_skill {
+            get {
+                return ResourceManager.GetString("SUPP_god_skill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.zdolnosc, l.dod_inf FROM n_uni.bogowie b JOIN n_uni.bog_zdo l ON b.nazwa = l.bog WHERE b.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_god_talent {
+            get {
+                return ResourceManager.GetString("SUPP_god_talent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.profesja FROM n_uni.rasy r JOIN n_uni.ras_pro l ON r.nazwa = l.rasa WHERE r.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_race_career {
+            get {
+                return ResourceManager.GetString("SUPP_race_career", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.umiejetnosc, l.dod_inf FROM n_uni.rasy r JOIN n_uni.ras_umi l ON r.nazwa = l.rasa WHERE r.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_race_skill {
+            get {
+                return ResourceManager.GetString("SUPP_race_skill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.cecha, l.wartosc FROM n_uni.rasy r JOIN n_uni.ras_cec l ON r.nazwa = l.rasa WHERE r.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_race_stat {
+            get {
+                return ResourceManager.GetString("SUPP_race_stat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.zdolnosc, l.dod_inf FROM n_uni.rasy r JOIN n_uni.ras_zdo l ON r.nazwa = l.rasa WHERE r.nazwa = &apos;{0}&apos;;.
+        /// </summary>
+        internal static string SUPP_race_talent {
+            get {
+                return ResourceManager.GetString("SUPP_race_talent", resourceCulture);
+            }
+        }
     }
 }

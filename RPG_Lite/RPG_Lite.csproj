@@ -61,7 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands.Designer.cs">
+    <Compile Include="Columns.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Columns.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Commands1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Commands.resx</DependentUpon>
@@ -99,9 +104,13 @@
     <Compile Include="Types\Not-Aggr\Stat.cs" />
     <Compile Include="Types\Wrappers\WTalent.cs" />
     <Compile Include="Types\Wrappers\WWeapon.cs" />
+    <EmbeddedResource Include="Columns.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Columns.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Commands.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Commands.Designer.cs</LastGenOutput>
+      <LastGenOutput>Commands1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
