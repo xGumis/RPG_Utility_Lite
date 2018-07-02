@@ -76,6 +76,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query.cs" />
+    <Compile Include="Types\AType.cs" />
     <Compile Include="Types\Not-Aggr\Armor.cs" />
     <Compile Include="Types\Aggregated\Career.cs" />
     <Compile Include="Types\Aggregated\Character.cs" />
@@ -84,9 +85,20 @@
     <Compile Include="Types\Aggregated\Race.cs" />
     <Compile Include="Types\Aggregated\Skill.cs" />
     <Compile Include="Types\Aggregated\Spell.cs" />
-    <Compile Include="Types\Not-Aggr\Stat.cs" />
+    <Compile Include="Types\Wrappers\WStat.cs" />
     <Compile Include="Types\Aggregated\Talent.cs" />
     <Compile Include="Types\Not-Aggr\Weapon.cs" />
+    <Compile Include="Types\Wrappers\WArmor.cs" />
+    <Compile Include="Types\Wrappers\WCareer.cs" />
+    <Compile Include="Types\Wrappers\WCharacter.cs" />
+    <Compile Include="Types\Wrappers\WGod.cs" />
+    <Compile Include="Types\Wrappers\WItem.cs" />
+    <Compile Include="Types\Wrappers\WRace.cs" />
+    <Compile Include="Types\Wrappers\WSkill.cs" />
+    <Compile Include="Types\Wrappers\WSpell.cs" />
+    <Compile Include="Types\Not-Aggr\Stat.cs" />
+    <Compile Include="Types\Wrappers\WTalent.cs" />
+    <Compile Include="Types\Wrappers\WWeapon.cs" />
     <EmbeddedResource Include="Commands.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Commands.Designer.cs</LastGenOutput>

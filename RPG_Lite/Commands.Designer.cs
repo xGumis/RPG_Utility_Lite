@@ -61,11 +61,92 @@ namespace RPG_Lite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.pancerze;.
+        /// </summary>
+        internal static string RECORDS_armor {
+            get {
+                return ResourceManager.GetString("RECORDS_armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.profesje;.
+        /// </summary>
+        internal static string RECORDS_careers {
+            get {
+                return ResourceManager.GetString("RECORDS_careers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.bogowie;.
+        /// </summary>
+        internal static string RECORDS_gods {
+            get {
+                return ResourceManager.GetString("RECORDS_gods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.przedmioty;.
+        /// </summary>
+        internal static string RECORDS_items {
+            get {
+                return ResourceManager.GetString("RECORDS_items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.rasy;.
+        /// </summary>
+        internal static string RECORDS_races {
+            get {
+                return ResourceManager.GetString("RECORDS_races", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.umiejetnosci;.
+        /// </summary>
+        internal static string RECORDS_skills {
+            get {
+                return ResourceManager.GetString("RECORDS_skills", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.zaklecia;.
+        /// </summary>
+        internal static string RECORDS_spells {
+            get {
+                return ResourceManager.GetString("RECORDS_spells", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT * FROM n_uni.cechy;.
         /// </summary>
-        internal static string show_all_stats {
+        internal static string RECORDS_stats {
             get {
-                return ResourceManager.GetString("show_all_stats", resourceCulture);
+                return ResourceManager.GetString("RECORDS_stats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.zdolnosci;.
+        /// </summary>
+        internal static string RECORDS_talents {
+            get {
+                return ResourceManager.GetString("RECORDS_talents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM n_uni.bronie;.
+        /// </summary>
+        internal static string RECORDS_weapons {
+            get {
+                return ResourceManager.GetString("RECORDS_weapons", resourceCulture);
             }
         }
         

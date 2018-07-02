@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_Lite.Types
 {
-    class Spell
+    class Spell : AType
     {
         public string Name { get; }
         public string MagicType { get; }
@@ -16,7 +16,7 @@ namespace RPG_Lite.Types
         public string Description { get; }
         public Talent RequiredTalent { get; }
         public Item SupportingItem { get; }
-        public Spell(string name, string desc, string type, int level, int cast, int durat, Talent talent, Item item)
+        public Spell(string name, string desc, string type, int level, int cast, int durat, Talent talent, Item item):base(name)
         {
             this.Name = name;
             this.Description = desc;
@@ -26,6 +26,17 @@ namespace RPG_Lite.Types
             this.Duration = durat;
             this.RequiredTalent = talent;
             this.SupportingItem = item;
+        }
+        public Spell(Wrapper.WSpell wr) : base(wr.Name)
+        {
+            this.Name = wr.Name;
+            this.Description = wr.Description;
+            this.MagicType = wr.MagicType;
+            this.RequiredLevel = wr.RequiredLevel;
+            this.CastTime = wr.CastTime;
+            this.Duration = wr.Duration;
+            this.RequiredTalent = wr.RequiredTalent;
+            this.SupportingItem = wr.SupportingItem;
         }
     }
 }

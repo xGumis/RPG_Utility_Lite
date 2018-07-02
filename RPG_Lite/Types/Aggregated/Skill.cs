@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_Lite.Types
 {
-    class Skill
+    class Skill : AType
     {
         public string Name { get; }
         public string Type { get; }
@@ -14,7 +14,7 @@ namespace RPG_Lite.Types
         public int Level { get; }
         public string AdditionalInfo { get; }
         public Stat Characteristic { get; }
-        public Skill(string name, string type, string desc, Stat charac)
+        public Skill(string name, string type, string desc, Stat charac) : base(name)
         {
             this.Name = name;
             this.Type = type;
@@ -23,7 +23,7 @@ namespace RPG_Lite.Types
             this.AdditionalInfo = null;
             this.Characteristic = charac;
         }
-        public Skill(string name, string type, string desc, Stat charac, int level, string info)
+        public Skill(string name, string type, string desc, Stat charac, int level, string info) : base(name)
         {
             this.Name = name;
             this.Type = type;
@@ -32,7 +32,7 @@ namespace RPG_Lite.Types
             this.AdditionalInfo = info;
             this.Characteristic = charac;
         }
-        public Skill(string name, string type, string desc, Stat charac, string info)
+        public Skill(string name, string type, string desc, Stat charac, string info) : base(name)
         {
             this.Name = name;
             this.Type = type;
@@ -40,6 +40,15 @@ namespace RPG_Lite.Types
             this.Level = 0;
             this.AdditionalInfo = info;
             this.Characteristic = charac;
+        }
+        public Skill(Wrapper.WSkill wr) : base(wr.Name)
+        {
+            this.Name = wr.Name;
+            this.Type = wr.Type;
+            this.Description = wr.Description;
+            this.Level = wr.Level;
+            this.AdditionalInfo = wr.AdditionalInfo;
+            this.Characteristic = wr.Characteristic;
         }
     }
 }

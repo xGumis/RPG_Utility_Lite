@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_Lite.Types
 {
-    class Career
+    class Career : AType
     {
         public string Name { get; }
         public string Type { get; }
@@ -17,7 +17,7 @@ namespace RPG_Lite.Types
         public Armor[] StartArmor { get; }
         public Item[] StartEquipment { get; }
         public Career[] AvailableCareer { get; }
-        public Career(string name, string type, Stat[] stats, Skill[] skills, Talent[] talents, Weapon[] weapons, Armor[] armor, Item[] eq, Career[] careers)
+        public Career(string name, string type, Stat[] stats, Skill[] skills, Talent[] talents, Weapon[] weapons, Armor[] armor, Item[] eq, Career[] careers):base(name)
         {
             this.Name = name;
             this.Type = type;
@@ -29,7 +29,7 @@ namespace RPG_Lite.Types
             this.StartEquipment = eq;
             this.AvailableCareer = careers;
         }
-        public Career(string name)
+        public Career(string name):base(name)
         {
             this.Name = name;
             this.Type = null;
@@ -40,6 +40,18 @@ namespace RPG_Lite.Types
             this.StartArmor = null;
             this.StartEquipment = null;
             this.AvailableCareer = null;
+        }
+        public Career(Wrapper.WCareer wr):base(wr.Name)
+        {
+            this.Name = wr.Name;
+            this.Type = wr.Type;
+            this.StatsScheme = wr.StatsScheme;
+            this.AvailableSkills = wr.AvailableSkills;
+            this.AvailableTalents = wr.AvailableTalents;
+            this.StartWeapons = wr.StartWeapons;
+            this.StartArmor = wr.StartArmor;
+            this.StartEquipment = wr.StartEquipment;
+            this.AvailableCareer = wr.AvailableCareer;
         }
     }
 }

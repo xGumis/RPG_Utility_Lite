@@ -117,8 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="show_all_stats" xml:space="preserve">
+  <data name="RECORDS_armor" xml:space="preserve">
+    <value>SELECT * FROM n_uni.pancerze;</value>
+  </data>
+  <data name="RECORDS_careers" xml:space="preserve">
+    <value>SELECT * FROM n_uni.profesje;</value>
+  </data>
+  <data name="RECORDS_gods" xml:space="preserve">
+    <value>SELECT * FROM n_uni.bogowie;</value>
+  </data>
+  <data name="RECORDS_items" xml:space="preserve">
+    <value>SELECT * FROM n_uni.przedmioty;</value>
+  </data>
+  <data name="RECORDS_races" xml:space="preserve">
+    <value>SELECT * FROM n_uni.rasy;</value>
+  </data>
+  <data name="RECORDS_skills" xml:space="preserve">
+    <value>SELECT * FROM n_uni.umiejetnosci;</value>
+  </data>
+  <data name="RECORDS_spells" xml:space="preserve">
+    <value>SELECT * FROM n_uni.zaklecia;</value>
+  </data>
+  <data name="RECORDS_stats" xml:space="preserve">
     <value>SELECT * FROM n_uni.cechy;</value>
+  </data>
+  <data name="RECORDS_talents" xml:space="preserve">
+    <value>SELECT * FROM n_uni.zdolnosci;</value>
+  </data>
+  <data name="RECORDS_weapons" xml:space="preserve">
+    <value>SELECT * FROM n_uni.bronie;</value>
   </data>
   <data name="show_role" xml:space="preserve">
     <value>SELECT dbo.Check_Role();</value>

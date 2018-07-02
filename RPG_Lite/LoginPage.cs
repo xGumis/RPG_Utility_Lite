@@ -24,5 +24,12 @@ namespace RPG_Lite
             MessageBox.Show(Query.Show_Role());
             
         }
+
+        private void comboBox1_DropDown(object sender, EventArgs e)
+        {
+            DBOperator asd = new DBOperator();
+            comboBox1.Items.Clear();
+            comboBox1.Items.AddRange(asd.GetTables());
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_Lite.Types
 {
-    class Weapon
+    class Weapon : AType
     {
         public string Name { get; }
         public string Description { get; }
@@ -20,7 +20,7 @@ namespace RPG_Lite.Types
         public string Treats { get; }
         public int Quantity { get; }
         public string Quality { get; }
-        public Weapon(string name, string desc, string price, float weight,string dmg, int reload, float range, string treat, string avail, string cat, int quant, string quality)
+        public Weapon(string name, string desc, string price, float weight,string dmg, int reload, float range, string treat, string avail, string cat, int quant, string quality):base(name)
         {
             this.Name = name;
             this.Description = desc;
@@ -35,7 +35,7 @@ namespace RPG_Lite.Types
             this.Quantity = quant;
             this.Quality = quality;
         }
-        public Weapon(string name, string desc, string price, float weight, string dmg, int reload, float range, string treat, string avail, string cat)
+        public Weapon(string name, string desc, string price, float weight, string dmg, int reload, float range, string treat, string avail, string cat):base(name)
         {
             this.Name = name;
             this.Description = desc;
@@ -49,6 +49,21 @@ namespace RPG_Lite.Types
             this.Category = cat;
             this.Quantity = 0;
             this.Quality = null;
+        }
+        public Weapon(Wrapper.WWeapon wr) : base(wr.Name)
+        {
+            this.Name = wr.Name;
+            this.Description = wr.Description;
+            this.Price = wr.Price;
+            this.Weight = wr.Weight;
+            this.Damage = wr.Damage;
+            this.Reload = wr.Reload;
+            this.Range = wr.Range;
+            this.Availability = wr.Availability;
+            this.Treats = wr.Treats;
+            this.Category = wr.Category;
+            this.Quantity = wr.Quantity;
+            this.Quality = wr.Quality;
         }
     }
 }

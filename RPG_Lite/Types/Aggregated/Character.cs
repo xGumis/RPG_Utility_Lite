@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_Lite.Types
 {
-    class Character
+    class Character : AType
     {
         public int Id { get; }
         public string Name { get; }
@@ -34,11 +34,12 @@ namespace RPG_Lite.Types
         public Weapon[] Weapons { get; }
         public Armor[] Armor { get; }
         public Item[] Items { get; }
-        public Character(string name, string gender, string eye, string hair, string sign, string feat, string cuts,
+        public Character(int id, string name, string gender, string eye, string hair, string sign, string feat, string cuts,
             string fam, string bplace, string history, string info, string condition, int age, float weight, float height,
             Race race, Career career, God god, Stat[] stats, Talent[] talents, Skill[] skills, Spell[] spells, Weapon[] weapons,
-            Armor[] armor, Item[] item)
+            Armor[] armor, Item[] item):base(id.ToString())
         {
+            this.Id = id;
             this.Name = name;
             this.Gender = gender;
             this.EyeColor = eye;
@@ -64,6 +65,35 @@ namespace RPG_Lite.Types
             this.Spells = spells;
             this.Armor = armor;
             this.Items = item;
+        }
+        public Character(Wrapper.WCharacter wr) : base(wr.Id.ToString())
+        {
+            this.Id = wr.Id;
+            this.Name = wr.Name;
+            this.Gender = wr.Gender;
+            this.EyeColor = wr.EyeColor;
+            this.HairColor = wr.HairColor;
+            this.StarSign = wr.StarSign;
+            this.SpecialFeatures = wr.SpecialFeatures;
+            this.CutsBruises = wr.CutsBruises;
+            this.Family = wr.Family;
+            this.BirthPlace = wr.BirthPlace;
+            this.History = wr.History;
+            this.AdditionalInfo = wr.AdditionalInfo;
+            this.MentalCondition = wr.MentalCondition;
+            this.Age = wr.Age;
+            this.Weapons = wr.Weapons;
+            this.Weight = wr.Weight;
+            this.Height = wr.Height;
+            this.Race = wr.Race;
+            this.CurrentCareer = wr.CurrentCareer;
+            this.WorshipedGod = wr.WorshipedGod;
+            this.Stats = wr.Stats;
+            this.Talents = wr.Talents;
+            this.Skills = wr.Skills;
+            this.Spells = wr.Spells;
+            this.Armor = wr.Armor;
+            this.Items = wr.Items;
         }
     }
 }
