@@ -20,8 +20,13 @@ namespace RPG_Lite
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text != null)
+                if (textBox2.Text != null)
+                    Query.Change_Login(textBox1.Text, textBox2.Text);
             Query.Initiate();
             MessageBox.Show(Query.Show_Role());
+            DBOperator asd = new DBOperator();
+            asd.Testadd();
             
         }
 
@@ -29,7 +34,13 @@ namespace RPG_Lite
         {
             DBOperator asd = new DBOperator();
             comboBox1.Items.Clear();
-            comboBox1.Items.AddRange(asd.GetTables());
+            var lis = asd.GetRecordsList("Cechy");
+            var range = new string[lis.Count];
+            for(int i = 0; i < lis.Count; i++)
+            {
+                range[i] = lis[i][0];
+            }
+            comboBox1.Items.AddRange(range);
         }
     }
 }

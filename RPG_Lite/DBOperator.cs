@@ -126,5 +126,10 @@ namespace RPG_Lite
             #endregion
             return list;
         }
+        public void Testadd()
+        {
+            var stat = new Types.Stat("test", "opis");
+            Query.Add_Stat(stat);
+        }
     }
 }

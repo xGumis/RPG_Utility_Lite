@@ -28,15 +28,14 @@ namespace RPG_Lite
         {
             conn = new SqlConnection(Build_Connection_String());
         }
-        private static SqlDataReader Call_Command(string command)
+        private static SqlDataReader Call_Command(SqlCommand command)
         {
             try
             {
                 SqlDataReader reader;
-                SqlCommand com = new SqlCommand(command);
-                com.Connection = conn;
+                command.Connection = conn;
                 conn.Open();
-                reader = com.ExecuteReader();
+                reader = command.ExecuteReader();
                 return reader;
             }
             catch (Exception e)
@@ -53,7 +52,8 @@ namespace RPG_Lite
         public static void Initiate()
         {
             Build_Connection();
-            SqlDataReader reader = Call_Command(Commands.show_role);
+            var cmd = new SqlCommand(Commands.show_role);
+            SqlDataReader reader = Call_Command(cmd);
             if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -66,7 +66,8 @@ namespace RPG_Lite
         public static string Show_Role() { return role; }
         public static List<Types.AType> Records_Stats()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_stats);
+            var cmd = new SqlCommand(Commands.RECORDS_stats);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             if (reader.HasRows)
                 {
@@ -88,7 +89,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Skills()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_skills);
+            var cmd = new SqlCommand(Commands.RECORDS_skills);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             if (reader.HasRows)
             {
@@ -117,7 +119,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Items()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_items);
+            var cmd = new SqlCommand(Commands.RECORDS_items);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             if (reader.HasRows)
             {
@@ -143,7 +146,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Weapons()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_weapons);
+            var cmd = new SqlCommand(Commands.RECORDS_weapons);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             if (reader.HasRows)
             {
@@ -173,7 +177,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Armor()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_armor);
+            var cmd = new SqlCommand(Commands.RECORDS_armor);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             if (reader.HasRows)
             {
@@ -198,7 +203,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Talents()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_talents);
+            var cmd = new SqlCommand(Commands.RECORDS_talents);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             if (reader.HasRows)
             {
@@ -220,7 +226,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Spells()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_spells);
+            var cmd = new SqlCommand(Commands.RECORDS_spells);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             if (reader.HasRows)
             {
@@ -252,7 +259,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Gods()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_gods);
+            var cmd = new SqlCommand(Commands.RECORDS_gods);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             var pre_list = new List<Types.Wrapper.WGod>();
             if (reader.HasRows)
@@ -271,7 +279,9 @@ namespace RPG_Lite
             }
             foreach(Types.Wrapper.WGod god in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_god_talent,god.Name));
+                cmd = new SqlCommand(Commands.SUPP_god_talent);
+                cmd.Parameters.AddWithValue("@god", god.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var tal_list = new List<Types.Talent>();
@@ -291,7 +301,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WGod god in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_god_skill, god.Name));
+                cmd = new SqlCommand(Commands.SUPP_god_skill);
+                cmd.Parameters.AddWithValue("@god", god.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var skill_list = new List<Types.Skill>();
@@ -314,7 +326,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Races()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_races);
+            var cmd = new SqlCommand(Commands.RECORDS_races);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             var pre_list = new List<Types.Wrapper.WRace>();
             if (reader.HasRows)
@@ -335,7 +348,9 @@ namespace RPG_Lite
             }
             foreach(Types.Wrapper.WRace race in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_race_talent, race.Name));
+                cmd = new SqlCommand(Commands.SUPP_race_talent);
+                cmd.Parameters.AddWithValue("@race", race.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var tal_list = new List<Types.Talent>();
@@ -355,7 +370,9 @@ namespace RPG_Lite
             }
             foreach(Types.Wrapper.WRace race in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_race_skill, race.Name));
+                cmd = new SqlCommand(Commands.SUPP_race_skill);
+                cmd.Parameters.AddWithValue("@race", race.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var skill_list = new List<Types.Skill>();
@@ -375,7 +392,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WRace race in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_race_stat, race.Name));
+                cmd = new SqlCommand(Commands.SUPP_race_stat);
+                cmd.Parameters.AddWithValue("@race", race.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var stat_list = new List<Types.Stat>();
@@ -395,7 +414,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WRace race in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_race_career, race.Name));
+                cmd = new SqlCommand(Commands.SUPP_race_career);
+                cmd.Parameters.AddWithValue("@race", race.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var car_list = new List<Types.Career>();
@@ -417,7 +438,8 @@ namespace RPG_Lite
         }
         public static List<Types.AType> Records_Careers()
         {
-            SqlDataReader reader = Call_Command(Commands.RECORDS_careers);
+            var cmd = new SqlCommand(Commands.RECORDS_careers);
+            SqlDataReader reader = Call_Command(cmd);
             var list = new List<Types.AType>();
             var pre_list = new List<Types.Wrapper.WCareer>();
             if (reader.HasRows)
@@ -436,7 +458,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WCareer career in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_career_talent, career.Name));
+                cmd = new SqlCommand(Commands.SUPP_career_talent);
+                cmd.Parameters.AddWithValue("@career", career.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var tal_list = new List<Types.Talent>();
@@ -456,7 +480,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WCareer career in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_career_skill, career.Name));
+                cmd = new SqlCommand(Commands.SUPP_career_skill);
+                cmd.Parameters.AddWithValue("@career", career.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var skill_list = new List<Types.Skill>();
@@ -476,7 +502,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WCareer career in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_career_stat, career.Name));
+                cmd = new SqlCommand(Commands.SUPP_career_stat);
+                cmd.Parameters.AddWithValue("@career", career.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var stat_list = new List<Types.Stat>();
@@ -496,7 +524,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WCareer career in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_career_career, career.Name));
+                cmd = new SqlCommand(Commands.SUPP_career_career);
+                cmd.Parameters.AddWithValue("@career", career.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var car_list = new List<Types.Career>();
@@ -515,7 +545,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WCareer career in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_carrer_weapon, career.Name));
+                cmd = new SqlCommand(Commands.SUPP_carrer_weapon);
+                cmd.Parameters.AddWithValue("@career", career.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var weapon_list = new List<Types.Weapon>();
@@ -534,7 +566,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WCareer career in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_career_armor, career.Name));
+                cmd = new SqlCommand(Commands.SUPP_career_armor);
+                cmd.Parameters.AddWithValue("@career", career.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var armor_list = new List<Types.Armor>();
@@ -553,7 +587,9 @@ namespace RPG_Lite
             }
             foreach (Types.Wrapper.WCareer career in pre_list)
             {
-                reader = Call_Command(string.Format(Commands.SUPP_career_item, career.Name));
+                cmd = new SqlCommand(Commands.SUPP_career_item);
+                cmd.Parameters.AddWithValue("@career", career.Name);
+                reader = Call_Command(cmd);
                 if (reader.HasRows)
                 {
                     var item_list = new List<Types.Item>();
@@ -573,6 +609,336 @@ namespace RPG_Lite
             conn.Close();
             return list;
         }
+        public static void Add_Stat(Types.Stat stat)
+        {
+            var cmd = new SqlCommand(Commands.ADD_stat);
+            cmd.Parameters.AddWithValue("@name", stat.Name);
+            cmd.Parameters.AddWithValue("@desc", stat.Description);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Add_Item(Types.Item item)
+        {
+            var cmd = new SqlCommand(Commands.ADD_items);
+            cmd.Parameters.AddWithValue("@name", item.Name);
+            cmd.Parameters.AddWithValue("@desc", item.Description);
+            cmd.Parameters.AddWithValue("@weight", item.Weight);
+            cmd.Parameters.AddWithValue("@price", item.Price);
+            cmd.Parameters.AddWithValue("@availability", item.Availability);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Add_Weapon(Types.Weapon weapon)
+        {
+            var cmd = new SqlCommand(Commands.ADD_weapons);
+            cmd.Parameters.AddWithValue("@name", weapon.Name);
+            cmd.Parameters.AddWithValue("@desc", weapon.Description);
+            cmd.Parameters.AddWithValue("@weight", weapon.Weight);
+            cmd.Parameters.AddWithValue("@price", weapon.Price);
+            cmd.Parameters.AddWithValue("@availability", weapon.Availability);
+            cmd.Parameters.AddWithValue("@treats", weapon.Treats);
+            cmd.Parameters.AddWithValue("@damage", weapon.Damage);
+            cmd.Parameters.AddWithValue("@range", weapon.Range);
+            cmd.Parameters.AddWithValue("@reload", weapon.Reload);
+            cmd.Parameters.AddWithValue("@category", weapon.Category);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Add_Armor(Types.Armor armor)
+        {
+            var cmd = new SqlCommand(Commands.ADD_armor);
+            cmd.Parameters.AddWithValue("@name", armor.Name);
+            cmd.Parameters.AddWithValue("@desc", armor.Description);
+            cmd.Parameters.AddWithValue("@availability", armor.Availability);
+            cmd.Parameters.AddWithValue("@weight", armor.Weight);
+            cmd.Parameters.AddWithValue("@cover", armor.Cover);
+            cmd.Parameters.AddWithValue("@points", armor.Points);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Add_Skill(Types.Skill skill)
+        {
+            var cmd = new SqlCommand(Commands.ADD_skills);
+            cmd.Parameters.AddWithValue("@name", skill.Name);
+            cmd.Parameters.AddWithValue("@desc", skill.Description);
+            cmd.Parameters.AddWithValue("@type", skill.Type);
+            cmd.Parameters.AddWithValue("@stat", skill.Characteristic.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Add_Talent(Types.Talent talent)
+        {
+            var cmd = new SqlCommand(Commands.ADD_talents);
+            cmd.Parameters.AddWithValue("@name", talent.Name);
+            cmd.Parameters.AddWithValue("@desc", talent.Description);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.ADD_talent_stat);
+            cmd.Parameters.AddWithValue("@talent", talent.Key);
+            cmd.Parameters.AddWithValue("@stat", talent.Bonus.Key);
+            cmd.Parameters.AddWithValue("@value", talent.Bonus.Advance);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Add_Spell(Types.Spell spell)
+        {
+            var cmd = new SqlCommand(Commands.ADD_spells);
+            cmd.Parameters.AddWithValue("@name", spell.Name);
+            cmd.Parameters.AddWithValue("@desc", spell.Description);
+            cmd.Parameters.AddWithValue("@talent", spell.RequiredTalent.Key);
+            cmd.Parameters.AddWithValue("@type", spell.MagicType);
+            cmd.Parameters.AddWithValue("@level", spell.RequiredLevel);
+            cmd.Parameters.AddWithValue("@casttime", spell.CastTime);
+            cmd.Parameters.AddWithValue("@duration", spell.Duration);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.ADD_spell_item);
+            cmd.Parameters.AddWithValue("@spell", spell.Key);
+            cmd.Parameters.AddWithValue("@item", spell.SupportingItem.Key);
+            cmd.Parameters.AddWithValue("@bonus", spell.SupportingItem.Bonus);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Add_God(Types.God god)
+        {
+            var cmd = new SqlCommand(Commands.ADD_gods);
+            cmd.Parameters.AddWithValue("@name", god.Name);
+            cmd.Parameters.AddWithValue("@desc", god.Description);
+            cmd.Parameters.AddWithValue("@symbol", god.Symbol);
+            Call_Command(cmd);
+            foreach(Types.Skill skill in god.Skills)
+            {
+                cmd = new SqlCommand(Commands.ADD_god_skill);
+                cmd.Parameters.AddWithValue("@skill", skill.Key);
+                cmd.Parameters.AddWithValue("@god", god.Key);
+                cmd.Parameters.AddWithValue("@addinfo", skill.AdditionalInfo);
+                Call_Command(cmd);
+            }
+            foreach (Types.Talent talent in god.Talents)
+            {
+                cmd = new SqlCommand(Commands.ADD_god_talent);
+                cmd.Parameters.AddWithValue("@talent", talent.Key);
+                cmd.Parameters.AddWithValue("@god", god.Key);
+                cmd.Parameters.AddWithValue("@addinfo", talent.AdditionalInfo);
+                Call_Command(cmd);
+            }
+            conn.Close();
+        }
+        public static void Add_Race(Types.Race race)
+        {
+            var cmd = new SqlCommand(Commands.ADD_races);
+            cmd.Parameters.AddWithValue("@name", race.Name);
+            cmd.Parameters.AddWithValue("@desc", race.Description);
+            cmd.Parameters.AddWithValue("@history", race.History);
+            cmd.Parameters.AddWithValue("@tips", race.Tips);
+            Call_Command(cmd);
+            foreach (Types.Skill skill in race.StartingSkills)
+            {
+                cmd = new SqlCommand(Commands.ADD_race_skill);
+                cmd.Parameters.AddWithValue("@skill", skill.Key);
+                cmd.Parameters.AddWithValue("@race", race.Key);
+                cmd.Parameters.AddWithValue("@addinfo", skill.AdditionalInfo);
+                Call_Command(cmd);
+            }
+            foreach (Types.Talent talent in race.StartingTalents)
+            {
+                cmd = new SqlCommand(Commands.ADD_race_talent);
+                cmd.Parameters.AddWithValue("@talent", talent.Key);
+                cmd.Parameters.AddWithValue("@race", race.Key);
+                cmd.Parameters.AddWithValue("@addinfo", talent.AdditionalInfo);
+                Call_Command(cmd);
+            }
+            foreach (Types.Stat stat in race.StartingStats)
+            {
+                cmd = new SqlCommand(Commands.ADD_race_stat);
+                cmd.Parameters.AddWithValue("@stat", stat.Key);
+                cmd.Parameters.AddWithValue("@race", race.Key);
+                cmd.Parameters.AddWithValue("@value", stat.Starting);
+                Call_Command(cmd);
+            }
+            foreach (Types.Career career in race.PossibleCareer)
+            {
+                cmd = new SqlCommand(Commands.ADD_race_career);
+                cmd.Parameters.AddWithValue("@career", career.Key);
+                cmd.Parameters.AddWithValue("@race", race.Key);
+                Call_Command(cmd);
+            }
+            conn.Close();
+        }
+        public static void Add_Career(Types.Career career)
+        {
+            var cmd = new SqlCommand(Commands.ADD_careers);
+            cmd.Parameters.AddWithValue("@name", career.Name);
+            cmd.Parameters.AddWithValue("@type", career.Type);
+            Call_Command(cmd);
+            foreach (Types.Skill skill in career.AvailableSkills)
+            {
+                cmd = new SqlCommand(Commands.ADD_career_skill);
+                cmd.Parameters.AddWithValue("@skill", skill.Key);
+                cmd.Parameters.AddWithValue("@career", career.Key);
+                cmd.Parameters.AddWithValue("@addinfo", skill.AdditionalInfo);
+                Call_Command(cmd);
+            }
+            foreach (Types.Talent talent in career.AvailableTalents)
+            {
+                cmd = new SqlCommand(Commands.ADD_career_talent);
+                cmd.Parameters.AddWithValue("@talent", talent.Key);
+                cmd.Parameters.AddWithValue("@career", career.Key);
+                cmd.Parameters.AddWithValue("@addinfo", talent.AdditionalInfo);
+                Call_Command(cmd);
+            }
+            foreach (Types.Stat stat in career.StatsScheme)
+            {
+                cmd = new SqlCommand(Commands.ADD_career_stat);
+                cmd.Parameters.AddWithValue("@stat", stat.Key);
+                cmd.Parameters.AddWithValue("@career", career.Key);
+                cmd.Parameters.AddWithValue("@value", stat.Advance);
+                Call_Command(cmd);
+            }
+            foreach (Types.Career poscareer in career.AvailableCareer)
+            {
+                cmd = new SqlCommand(Commands.ADD_career_career);
+                cmd.Parameters.AddWithValue("@career", career.Key);
+                cmd.Parameters.AddWithValue("@possiblecareer", poscareer.Key);
+                Call_Command(cmd);
+            }
+            foreach (Types.Armor armor in career.StartArmor)
+            {
+                cmd = new SqlCommand(Commands.ADD_career_armor);
+                cmd.Parameters.AddWithValue("@career", career.Key);
+                cmd.Parameters.AddWithValue("@armor", armor.Key);
+                Call_Command(cmd);
+            }
+            foreach (Types.Weapon weapon in career.StartWeapons)
+            {
+                cmd = new SqlCommand(Commands.ADD_career_weapon);
+                cmd.Parameters.AddWithValue("@career", career.Key);
+                cmd.Parameters.AddWithValue("@weapon", weapon.Key);
+                Call_Command(cmd);
+            }
+            foreach (Types.Item item in career.StartEquipment)
+            {
+                cmd = new SqlCommand(Commands.ADD_career_item);
+                cmd.Parameters.AddWithValue("@career", career.Key);
+                cmd.Parameters.AddWithValue("@item", item.Key);
+                Call_Command(cmd);
+            }
+            conn.Close();
+        }
+        public static void Delete_Stat(Types.Stat stat)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_stat);
+            cmd.Parameters.AddWithValue("@stat", stat.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_Item(Types.Item item)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_items);
+            cmd.Parameters.AddWithValue("@item", item.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_Weapon(Types.Weapon weapon)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_weapons);
+            cmd.Parameters.AddWithValue("@weapon", weapon.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_Armor(Types.Armor armor)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_armor);
+            cmd.Parameters.AddWithValue("@armor", armor.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_Skill(Types.Skill skill)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_skills);
+            cmd.Parameters.AddWithValue("@skill", skill.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_Talent(Types.Talent talent)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_talent_stat);
+            cmd.Parameters.AddWithValue("@talent", talent.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_talents);
+            cmd.Parameters.AddWithValue("@talent", talent.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_Spell(Types.Spell spell)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_spell_item);
+            cmd.Parameters.AddWithValue("@spell", spell.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_spells);
+            cmd.Parameters.AddWithValue("@spell", spell.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_God(Types.God god)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_god_skill);
+            cmd.Parameters.AddWithValue("@god", god.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_god_talent);
+            cmd.Parameters.AddWithValue("@god", god.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_gods);
+            cmd.Parameters.AddWithValue("@god", god.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_Race(Types.Race race)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_race_skill);
+            cmd.Parameters.AddWithValue("@race", race.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_race_talent);
+            cmd.Parameters.AddWithValue("@race", race.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_race_stat);
+            cmd.Parameters.AddWithValue("@race", race.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_race_career);
+            cmd.Parameters.AddWithValue("@race", race.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_races);
+            cmd.Parameters.AddWithValue("@race", race.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+        public static void Delete_Career(Types.Career career)
+        {
+            var cmd = new SqlCommand(Commands.DELETE_career_skill);
+            cmd.Parameters.AddWithValue("@career", career.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_career_talent);
+            cmd.Parameters.AddWithValue("@career", career.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_career_stat);
+            cmd.Parameters.AddWithValue("@career", career.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_career_career);
+            cmd.Parameters.AddWithValue("@career", career.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_career_armor);
+            cmd.Parameters.AddWithValue("@career", career.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_career_weapon);
+            cmd.Parameters.AddWithValue("@career", career.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_career_item);
+            cmd.Parameters.AddWithValue("@career", career.Key);
+            Call_Command(cmd);
+            cmd = new SqlCommand(Commands.DELETE_careers);
+            cmd.Parameters.AddWithValue("@career", career.Key);
+            Call_Command(cmd);
+            conn.Close();
+        }
+
 
     }
 }
