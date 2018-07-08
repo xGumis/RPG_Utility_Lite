@@ -24,5 +24,13 @@ namespace RPG_Lite.Types
             this.Advance = wr.Advance;
             this.Current = wr.Current;
         }
+        public Stat() : base(null)
+        {
+            this.Name = "";
+            this.Description = "";
+            this.Starting = 0;
+            this.Advance = 0;
+            this.Current = 0;
+        }
     }
 }

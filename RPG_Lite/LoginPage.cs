@@ -24,7 +24,7 @@ namespace RPG_Lite
                 if (textBox2.Text != null)
                     Query.Change_Login(textBox1.Text, textBox2.Text);
             Query.Initiate();
-            MessageBox.Show(Query.Show_Role());
+            MessageBox.Show(Query.is_Admin());
             DBOperator asd = new DBOperator();
             asd.Testadd();
             

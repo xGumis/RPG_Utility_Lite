@@ -106,6 +106,150 @@ namespace RPG_Lite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dod_inf.
+        /// </summary>
+        internal static string Char_AddInfo {
+            get {
+                return ResourceManager.GetString("Char_AddInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wiek.
+        /// </summary>
+        internal static string Char_Age {
+            get {
+                return ResourceManager.GetString("Char_Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to miejsce_urodzenia.
+        /// </summary>
+        internal static string Char_BirthPlace {
+            get {
+                return ResourceManager.GetString("Char_BirthPlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XP.
+        /// </summary>
+        internal static string Char_EXP {
+            get {
+                return ResourceManager.GetString("Char_EXP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kolor_oczu.
+        /// </summary>
+        internal static string Char_EyeColor {
+            get {
+                return ResourceManager.GetString("Char_EyeColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to rodzina.
+        /// </summary>
+        internal static string Char_Family {
+            get {
+                return ResourceManager.GetString("Char_Family", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to znaki_szczegolne.
+        /// </summary>
+        internal static string Char_Features {
+            get {
+                return ResourceManager.GetString("Char_Features", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to plec.
+        /// </summary>
+        internal static string Char_Gender {
+            get {
+                return ResourceManager.GetString("Char_Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to czczone_bostwo.
+        /// </summary>
+        internal static string Char_God {
+            get {
+                return ResourceManager.GetString("Char_God", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kolor_wlosow.
+        /// </summary>
+        internal static string Char_HairColor {
+            get {
+                return ResourceManager.GetString("Char_HairColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wzrost.
+        /// </summary>
+        internal static string Char_Height {
+            get {
+                return ResourceManager.GetString("Char_Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to historia.
+        /// </summary>
+        internal static string Char_History {
+            get {
+                return ResourceManager.GetString("Char_History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to zaburzenia_psychiczne.
+        /// </summary>
+        internal static string Char_MentalCondition {
+            get {
+                return ResourceManager.GetString("Char_MentalCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to blizny_i_rany.
+        /// </summary>
+        internal static string Char_Scars {
+            get {
+                return ResourceManager.GetString("Char_Scars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to znak_gwiezdny.
+        /// </summary>
+        internal static string Char_StarSign {
+            get {
+                return ResourceManager.GetString("Char_StarSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to waga.
+        /// </summary>
+        internal static string Char_Weight {
+            get {
+                return ResourceManager.GetString("Char_Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to schemat_rozwoju.
         /// </summary>
         internal static string Con_AdvStat {
@@ -156,6 +300,15 @@ namespace RPG_Lite {
         internal static string Con_CurrStat {
             get {
                 return ResourceManager.GetString("Con_CurrStat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to zaekwipowany.
+        /// </summary>
+        internal static string Con_Equipped {
+            get {
+                return ResourceManager.GetString("Con_Equipped", resourceCulture);
             }
         }
         
@@ -250,6 +403,15 @@ namespace RPG_Lite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to symbol.
+        /// </summary>
+        internal static string God_Symbol {
+            get {
+                return ResourceManager.GetString("God_Symbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to id.
         /// </summary>
         internal static string Id {
@@ -336,6 +498,15 @@ namespace RPG_Lite {
         internal static string Skill_Type {
             get {
                 return ResourceManager.GetString("Skill_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to bonus.
+        /// </summary>
+        internal static string Spell_Bonus {
+            get {
+                return ResourceManager.GetString("Spell_Bonus", resourceCulture);
             }
         }
         

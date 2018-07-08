@@ -24,6 +24,7 @@ namespace RPG_Lite.Types
         public int Age { get; }
         public float Weight { get; }
         public float Height { get; }
+        public int Exp { get; }
         public Race Race { get; }
         public Career CurrentCareer { get; }
         public God WorshipedGod { get; }
@@ -35,7 +36,7 @@ namespace RPG_Lite.Types
         public Armor[] Armor { get; }
         public Item[] Items { get; }
         public Character(int id, string name, string gender, string eye, string hair, string sign, string feat, string cuts,
-            string fam, string bplace, string history, string info, string condition, int age, float weight, float height,
+            string fam, string bplace, string history, string info, string condition, int age, float weight, float height, int xp,
             Race race, Career career, God god, Stat[] stats, Talent[] talents, Skill[] skills, Spell[] spells, Weapon[] weapons,
             Armor[] armor, Item[] item):base(id.ToString())
         {
@@ -56,6 +57,7 @@ namespace RPG_Lite.Types
             this.Weapons = weapons;
             this.Weight = weight;
             this.Height = height;
+            this.Exp = xp;
             this.Race = race;
             this.CurrentCareer = career;
             this.WorshipedGod = god;
@@ -85,6 +87,7 @@ namespace RPG_Lite.Types
             this.Weapons = wr.Weapons;
             this.Weight = wr.Weight;
             this.Height = wr.Height;
+            this.Exp = wr.Exp;
             this.Race = wr.Race;
             this.CurrentCareer = wr.CurrentCareer;
             this.WorshipedGod = wr.WorshipedGod;
@@ -94,6 +97,36 @@ namespace RPG_Lite.Types
             this.Spells = wr.Spells;
             this.Armor = wr.Armor;
             this.Items = wr.Items;
+        }
+        public Character() : base(null)
+        {
+            this.Id = -1;
+            this.Name = "";
+            this.Gender = "";
+            this.EyeColor = "";
+            this.HairColor = "";
+            this.StarSign = "";
+            this.SpecialFeatures = "";
+            this.CutsBruises = "";
+            this.Family = "";
+            this.BirthPlace = "";
+            this.History = "";
+            this.AdditionalInfo = "";
+            this.MentalCondition = "";
+            this.Age = 0;
+            this.Weapons = null;
+            this.Weight = 0;
+            this.Height = 0;
+            this.Exp = 0;
+            this.Race = new Race();
+            this.CurrentCareer = new Career();
+            this.WorshipedGod = new God();
+            this.Stats = null;
+            this.Talents = null;
+            this.Skills = null;
+            this.Spells = null;
+            this.Armor = null;
+            this.Items = null;
         }
     }
 }

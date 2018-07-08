@@ -27,5 +27,12 @@ namespace RPG_Lite.Types
             this.Talents = wr.Talents;
             this.Skills = wr.Skills;
         }
+        public God() : base(null)
+        {
+            this.Name = "";
+            this.Description = "";
+            this.Talents = null;
+            this.Skills = null;
+        }
     }
 }

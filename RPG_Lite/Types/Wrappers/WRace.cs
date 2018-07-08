@@ -16,5 +16,27 @@ namespace RPG_Lite.Types.Wrapper
         public Talent[] StartingTalents { get; set; }
         public Skill[] StartingSkills { get; set; }
         public Career[] PossibleCareer { get; set; }
+        public WRace()
+        {
+            this.Name = "";
+            this.Description = "";
+            this.History = "";
+            this.Tips = "";
+            this.StartingStats = null;
+            this.StartingTalents = null;
+            this.StartingSkills = null;
+            this.PossibleCareer = null;
+        }
+        public WRace(Types.Race race)
+        {
+            this.Name = race.Name;
+            this.Description = race.Description;
+            this.History = race.History;
+            this.Tips = race.Tips;
+            this.StartingStats = race.StartingStats;
+            this.StartingTalents = race.StartingTalents;
+            this.StartingSkills = race.StartingSkills;
+            this.PossibleCareer = race.PossibleCareer;
+        }
     }
 }

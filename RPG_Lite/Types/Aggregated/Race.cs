@@ -38,5 +38,16 @@ namespace RPG_Lite.Types
             this.StartingSkills = wr.StartingSkills;
             this.PossibleCareer = wr.PossibleCareer;
         }
+        public Race() : base(null)
+        {
+            this.Name = "";
+            this.Description = "";
+            this.History = "";
+            this.Tips = "";
+            this.StartingTalents = null;
+            this.StartingStats = null;
+            this.StartingSkills = null;
+            this.PossibleCareer = null;
+        }
     }
 }

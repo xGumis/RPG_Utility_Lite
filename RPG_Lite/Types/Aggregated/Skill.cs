@@ -50,5 +50,14 @@ namespace RPG_Lite.Types
             this.AdditionalInfo = wr.AdditionalInfo;
             this.Characteristic = wr.Characteristic;
         }
+        public Skill() : base(null)
+        {
+            this.Name = "";
+            this.Type = "";
+            this.Description = "";
+            this.Level = 0;
+            this.AdditionalInfo = "";
+            this.Characteristic = new Stat();
+        }
     }
 }

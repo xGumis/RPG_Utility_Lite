@@ -31,5 +31,12 @@ namespace RPG_Lite.Types
             this.Description = wr.Description;
             this.Bonus = wr.Bonus;
         }
+        public Talent() : base(null)
+        {
+            this.AdditionalInfo = "";
+            this.Name = "";
+            this.Description = "";
+            this.Bonus = new Stat();
+        }
     }
 }

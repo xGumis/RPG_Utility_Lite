@@ -17,6 +17,7 @@ namespace RPG_Lite.Types
         public string Cover { get; }
         public int Quantity { get; }
         public string Quality { get; }
+        public bool Equipped { get; }
         public Armor(string name, string desc, string price, float weight, int points,string avail, string cover, int quant, string quality):base(name)
         {
             this.Name = name;
@@ -48,10 +49,24 @@ namespace RPG_Lite.Types
             this.Price = wr.Price;
             this.Weight = wr.Weight;
             this.Points = wr.Points;
+            this.Equipped = wr.Equipped;
             this.Availability = wr.Availability;
             this.Cover = wr.Cover;
             this.Quantity = wr.Quantity;
             this.Quality = wr.Quality;
+        }
+        public Armor() : base(null)
+        {
+            this.Name = "";
+            this.Description = "";
+            this.Price = "";
+            this.Weight = 0;
+            this.Points = 0;
+            this.Equipped = false;
+            this.Availability = "";
+            this.Cover = "";
+            this.Quantity = 0;
+            this.Quality = "";
         }
     }
 }

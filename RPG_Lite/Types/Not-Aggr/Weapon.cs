@@ -20,6 +20,7 @@ namespace RPG_Lite.Types
         public string Treats { get; }
         public int Quantity { get; }
         public string Quality { get; }
+        public bool Equipped { get; }
         public Weapon(string name, string desc, string price, float weight,string dmg, int reload, float range, string treat, string avail, string cat, int quant, string quality):base(name)
         {
             this.Name = name;
@@ -59,11 +60,28 @@ namespace RPG_Lite.Types
             this.Damage = wr.Damage;
             this.Reload = wr.Reload;
             this.Range = wr.Range;
+            this.Equipped = wr.Equipped;
             this.Availability = wr.Availability;
             this.Treats = wr.Treats;
             this.Category = wr.Category;
             this.Quantity = wr.Quantity;
             this.Quality = wr.Quality;
+        }
+        public Weapon() : base(null)
+        {
+            this.Name = "";
+            this.Description = "";
+            this.Price = "";
+            this.Weight = 0;
+            this.Damage = "";
+            this.Reload = 0;
+            this.Range = 0;
+            this.Equipped = false;
+            this.Availability = "";
+            this.Treats = "";
+            this.Category = "";
+            this.Quantity = 0;
+            this.Quality = "";
         }
     }
 }

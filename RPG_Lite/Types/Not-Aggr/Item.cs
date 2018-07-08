@@ -67,5 +67,17 @@ namespace RPG_Lite.Types
             this.Quality = wr.Quality;
             this.Bonus = wr.Bonus;
         }
+        public Item() : base(null)
+        {
+            this.Id = -1;
+            this.Name = "";
+            this.Description = "";
+            this.Price = "";
+            this.Availability = "";
+            this.Weight = 0;
+            this.Quantity = 0;
+            this.Quality = "";
+            this.Bonus = 0;
+        }
     }
 }

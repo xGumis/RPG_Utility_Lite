@@ -38,5 +38,16 @@ namespace RPG_Lite.Types
             this.RequiredTalent = wr.RequiredTalent;
             this.SupportingItem = wr.SupportingItem;
         }
+        public Spell() : base(null)
+        {
+            this.Name = "";
+            this.Description = "";
+            this.MagicType = "";
+            this.RequiredLevel = 0;
+            this.CastTime = 0;
+            this.Duration = 0;
+            this.RequiredTalent = new Talent();
+            this.SupportingItem = new Item();
+        }
     }
 }

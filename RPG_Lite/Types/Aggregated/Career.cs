@@ -29,10 +29,10 @@ namespace RPG_Lite.Types
             this.StartEquipment = eq;
             this.AvailableCareer = careers;
         }
-        public Career(string name):base(name)
+        public Career(string name, string type):base(name)
         {
             this.Name = name;
-            this.Type = null;
+            this.Type = type;
             this.StatsScheme = null;
             this.AvailableSkills = null;
             this.AvailableTalents = null;
@@ -52,6 +52,18 @@ namespace RPG_Lite.Types
             this.StartArmor = wr.StartArmor;
             this.StartEquipment = wr.StartEquipment;
             this.AvailableCareer = wr.AvailableCareer;
+        }
+        public Career():base(null)
+        {
+            this.Name = "";
+            this.Type = "";
+            this.StatsScheme = null;
+            this.AvailableSkills = null;
+            this.AvailableTalents = null;
+            this.StartWeapons = null;
+            this.StartArmor = null;
+            this.StartEquipment = null;
+            this.AvailableCareer = null;
         }
     }
 }

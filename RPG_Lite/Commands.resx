@@ -369,4 +369,94 @@
   <data name="DELETE_weapons" xml:space="preserve">
     <value>DELETE FROM n_uni.bronie WHERE nazwa = @weapon;</value>
   </data>
+  <data name="ADD_character" xml:space="preserve">
+    <value>INSERT INTO uni.postacie (czczone_bostwo,rasa,profesja,nazwa,plec,kolor_oczu,kolor_wlosow,wiek,waga,wzrost,znak_gwiezdny,znaki_szczegolne,miejsce_urodzenia,rodzina,zaburzenia_psychiczne,blizny_i_rany,historia,dod_info,XP) VALUES (@god,@race,@career,@name,@gender,@eyecolor,@haircolor,@age,@weight,@height,@starsign,@features,@birthplace,@family,@mentalcondition,@scars,@history,@addinfo,@exp);</value>
+  </data>
+  <data name="ADD_char_armor" xml:space="preserve">
+    <value>INSERT INTO uni.pos_pan (id_postaci,pancerz,jakosc,zaekwipowany,ilosc) VALUES (@charcter,@armor,@quality,@equipped,@quantity);</value>
+  </data>
+  <data name="ADD_char_item" xml:space="preserve">
+    <value>INSERT INTO uni.pos_bro (id_postaci,id_przedmiotu,jakosc,ilosc,dod_inf) VALUES (@charcter,@item,@quality,@quantity,@addinfo);</value>
+  </data>
+  <data name="ADD_char_skill" xml:space="preserve">
+    <value>INSERT INTO uni.pos_umi (id_postaci,umiejetnosc,poziom,dod_inf) VALUES (@charcter,@skill,@level,@addinfo);</value>
+  </data>
+  <data name="ADD_char_spell" xml:space="preserve">
+    <value>INSERT INTO uni.pos.zak (id_postaci,zaklecie) VALUES (@character,@spell);</value>
+  </data>
+  <data name="ADD_char_stat" xml:space="preserve">
+    <value>INSERT INTO uni.pos_cec (id_postaci,cecha,wartosc_poczatkowa,schemat_rozwoju,aktualna_wartosc) VALUES (@charcter,@stat,@start,@adv,@curr);</value>
+  </data>
+  <data name="ADD_char_talent" xml:space="preserve">
+    <value>INSERT INTO uni.pos_zdo (id_postaci,zdolnosc,dod_inf) VALUES (@charcter,@talent,@addinfo);</value>
+  </data>
+  <data name="ADD_char_weapon" xml:space="preserve">
+    <value>INSERT INTO uni.pos_bro (id_postaci,bron,jakosc,zaekwipowany,ilosc) VALUES (@charcter,@weapon,@quality,@equipped,@quantity);</value>
+  </data>
+  <data name="DELETE_character" xml:space="preserve">
+    <value>DELETE FROM uni.postacie WHERE id = @character;</value>
+  </data>
+  <data name="DELETE_char_armor" xml:space="preserve">
+    <value>DELETE FROM uni.pos_pan WHERE id_postaci = @character;</value>
+  </data>
+  <data name="DELETE_char_item" xml:space="preserve">
+    <value>DELETE FROM uni.pos_prz WHERE id_postaci = @character;</value>
+  </data>
+  <data name="DELETE_char_skill" xml:space="preserve">
+    <value>DELETE FROM uni.pos_umi WHERE id_postaci = @character;</value>
+  </data>
+  <data name="DELETE_char_spell" xml:space="preserve">
+    <value>DELETE FROM uni.pos_zak WHERE id_postaci = @character;</value>
+  </data>
+  <data name="DELETE_char_stat" xml:space="preserve">
+    <value>DELETE FROM uni.pos_cec WHERE id_postaci = @character;</value>
+  </data>
+  <data name="DELETE_char_talent" xml:space="preserve">
+    <value>DELETE FROM uni.pos_zdo WHERE id_postaci = @character;</value>
+  </data>
+  <data name="DELETE_char_weapon" xml:space="preserve">
+    <value>DELETE FROM uni.pos_bro WHERE id_postaci = @character;</value>
+  </data>
+  <data name="RECORDS_characters" xml:space="preserve">
+    <value>SELECT * FROM uni.postacie;</value>
+  </data>
+  <data name="REC_characters" xml:space="preserve">
+    <value>SELECT * FROM uni.postacie WHERE id = @character;</value>
+  </data>
+  <data name="SUPP_char_armor" xml:space="preserve">
+    <value>SELECT l.pancerz, l.jakosc, l.zaekwipowany, l.ilosc FROM uni.postacie p JOIN uni.pos_pan l ON l.id_postaci = p.id WHERE p.id = @character;</value>
+  </data>
+  <data name="SUPP_char_item" xml:space="preserve">
+    <value>SELECT i.nazwa, l.dod_inf, l.jakosc, l.ilosc FROM (uni.postacie p JOIN uni.pos_prz l ON l.id_postaci = p.id) JOIN n_uni.przedmioty i ON i.id = l.id_przedmiotu WHERE p.id = @character;</value>
+  </data>
+  <data name="SUPP_char_skill" xml:space="preserve">
+    <value>SELECT l.umiejetnosc, l.poziom, l.dod_inf FROM uni.postacie p JOIN uni.pos_umi l ON l.id_postaci = p.id WHERE p.id = @character;</value>
+  </data>
+  <data name="SUPP_char_spell" xml:space="preserve">
+    <value>SELECT l.zaklecie FROM uni.postacie p JOIN uni.pos_zak l ON l.id_postaci = p.id WHERE p.id = @character;</value>
+  </data>
+  <data name="SUPP_char_stat" xml:space="preserve">
+    <value>SELECT l.cecha, l.wartosc_poczatkowa, l.schemat_rozwoju, l.aktualna_wartosc FROM uni.postacie p JOIN uni.pos_cec l ON l.id_postaci = p.id WHERE p.id = @character;</value>
+  </data>
+  <data name="SUPP_char_talent" xml:space="preserve">
+    <value>SELECT l.zdolnosc, l.dod_inf FROM uni.postacie p JOIN uni.pos_zdo l ON l.id_postaci = p.id WHERE p.id = @character;</value>
+  </data>
+  <data name="SUPP_char_weapon" xml:space="preserve">
+    <value>SELECT l.bron, l.jakosc, l.zaekwipowany, l.ilosc FROM uni.postacie p JOIN uni.pos_bro l ON l.id_postaci = p.id WHERE p.id = @character;</value>
+  </data>
+  <data name="SUPP_spell_item" xml:space="preserve">
+    <value>SELECT i.nazwa,l.bonus FROM (n_uni.zaklecia z JOIN n_uni.zak_prz l ON z.nazwa = l.zaklecie) JOIN n_uni.przedmioty i ON l.id_przedmiotu =i.id WHERE z.nazwa = @spell;</value>
+  </data>
+  <data name="SUPP_talent_stat" xml:space="preserve">
+    <value>SELECT l.cecha, l.wartosc FROM n_uni.zdolnosci t JOIN n_uni.zdo_cec l ON t.nazwa = l.zdolnosc WHERE t.nazwa = @talent;</value>
+  </data>
+  <data name="USER_Get_Character" xml:space="preserve">
+    <value>SELECT * FROM dbo.get_character(@character);</value>
+  </data>
+  <data name="USER_Get_characters" xml:space="preserve">
+    <value>SELECT * FROM dbo.get_characters();</value>
+  </data>
+  <data name="USER_Del_character" xml:space="preserve">
+    <value>EXECUTE dbo.del_character(@character);</value>
+  </data>
 </root>

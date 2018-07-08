@@ -142,6 +142,78 @@ namespace RPG_Lite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO uni.pos_pan (id_postaci,pancerz,jakosc,zaekwipowany,ilosc) VALUES (@charcter,@armor,@quality,@equipped,@quantity);.
+        /// </summary>
+        internal static string ADD_char_armor {
+            get {
+                return ResourceManager.GetString("ADD_char_armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO uni.pos_bro (id_postaci,id_przedmiotu,jakosc,ilosc,dod_inf) VALUES (@charcter,@item,@quality,@quantity,@addinfo);.
+        /// </summary>
+        internal static string ADD_char_item {
+            get {
+                return ResourceManager.GetString("ADD_char_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO uni.pos_umi (id_postaci,umiejetnosc,poziom,dod_inf) VALUES (@charcter,@skill,@level,@addinfo);.
+        /// </summary>
+        internal static string ADD_char_skill {
+            get {
+                return ResourceManager.GetString("ADD_char_skill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO uni.pos.zak (id_postaci,zaklecie) VALUES (@character,@spell);.
+        /// </summary>
+        internal static string ADD_char_spell {
+            get {
+                return ResourceManager.GetString("ADD_char_spell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO uni.pos_cec (id_postaci,cecha,wartosc_poczatkowa,schemat_rozwoju,aktualna_wartosc) VALUES (@charcter,@stat,@start,@adv,@curr);.
+        /// </summary>
+        internal static string ADD_char_stat {
+            get {
+                return ResourceManager.GetString("ADD_char_stat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO uni.pos_zdo (id_postaci,zdolnosc,dod_inf) VALUES (@charcter,@talent,@addinfo);.
+        /// </summary>
+        internal static string ADD_char_talent {
+            get {
+                return ResourceManager.GetString("ADD_char_talent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO uni.pos_bro (id_postaci,bron,jakosc,zaekwipowany,ilosc) VALUES (@charcter,@weapon,@quality,@equipped,@quantity);.
+        /// </summary>
+        internal static string ADD_char_weapon {
+            get {
+                return ResourceManager.GetString("ADD_char_weapon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO uni.postacie (czczone_bostwo,rasa,profesja,nazwa,plec,kolor_oczu,kolor_wlosow,wiek,waga,wzrost,znak_gwiezdny,znaki_szczegolne,miejsce_urodzenia,rodzina,zaburzenia_psychiczne,blizny_i_rany,historia,dod_info,XP) VALUES (@god,@race,@career,@name,@gender,@eyecolor,@haircolor,@age,@weight,@height,@starsign,@features,@birthplace,@family,@mentalcondition,@scars,@history,@addinfo,@exp);.
+        /// </summary>
+        internal static string ADD_character {
+            get {
+                return ResourceManager.GetString("ADD_character", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to INSERT INTO n_uni.bog_umi (umiejetnosc,bog,dod_inf) VALUES (@skill,@god,@addinfo);.
         /// </summary>
         internal static string ADD_god_skill {
@@ -367,6 +439,78 @@ namespace RPG_Lite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM uni.pos_pan WHERE id_postaci = @character;.
+        /// </summary>
+        internal static string DELETE_char_armor {
+            get {
+                return ResourceManager.GetString("DELETE_char_armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM uni.pos_prz WHERE id_postaci = @character;.
+        /// </summary>
+        internal static string DELETE_char_item {
+            get {
+                return ResourceManager.GetString("DELETE_char_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM uni.pos_umi WHERE id_postaci = @character;.
+        /// </summary>
+        internal static string DELETE_char_skill {
+            get {
+                return ResourceManager.GetString("DELETE_char_skill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM uni.pos_zak WHERE id_postaci = @character;.
+        /// </summary>
+        internal static string DELETE_char_spell {
+            get {
+                return ResourceManager.GetString("DELETE_char_spell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM uni.pos_cec WHERE id_postaci = @character;.
+        /// </summary>
+        internal static string DELETE_char_stat {
+            get {
+                return ResourceManager.GetString("DELETE_char_stat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM uni.pos_zdo WHERE id_postaci = @character;.
+        /// </summary>
+        internal static string DELETE_char_talent {
+            get {
+                return ResourceManager.GetString("DELETE_char_talent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM uni.pos_bro WHERE id_postaci = @character;.
+        /// </summary>
+        internal static string DELETE_char_weapon {
+            get {
+                return ResourceManager.GetString("DELETE_char_weapon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM uni.postacie WHERE id = @character;.
+        /// </summary>
+        internal static string DELETE_character {
+            get {
+                return ResourceManager.GetString("DELETE_character", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DELETE FROM n_uni.bog_umi WHERE bog = @god;.
         /// </summary>
         internal static string DELETE_god_skill {
@@ -529,6 +673,15 @@ namespace RPG_Lite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM uni.postacie WHERE id = @character;.
+        /// </summary>
+        internal static string REC_characters {
+            get {
+                return ResourceManager.GetString("REC_characters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT * FROM n_uni.bogowie WHERE nazwa = @god;.
         /// </summary>
         internal static string REC_gods {
@@ -615,6 +768,15 @@ namespace RPG_Lite {
         internal static string RECORDS_careers {
             get {
                 return ResourceManager.GetString("RECORDS_careers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM uni.postacie;.
+        /// </summary>
+        internal static string RECORDS_characters {
+            get {
+                return ResourceManager.GetString("RECORDS_characters", resourceCulture);
             }
         }
         
@@ -763,6 +925,69 @@ namespace RPG_Lite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT l.pancerz, l.jakosc, l.zaekwipowany, l.ilosc FROM uni.postacie p JOIN uni.pos_pan l ON l.id_postaci = p.id WHERE p.id = @character;.
+        /// </summary>
+        internal static string SUPP_char_armor {
+            get {
+                return ResourceManager.GetString("SUPP_char_armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT i.nazwa, l.dod_inf, l.jakosc, l.ilosc FROM (uni.postacie p JOIN uni.pos_prz l ON l.id_postaci = p.id) JOIN n_uni.przedmioty i ON i.id = l.id_przedmiotu WHERE p.id = @character;.
+        /// </summary>
+        internal static string SUPP_char_item {
+            get {
+                return ResourceManager.GetString("SUPP_char_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.umiejetnosc, l.poziom, l.dod_inf FROM uni.postacie p JOIN uni.pos_umi l ON l.id_postaci = p.id WHERE p.id = @character;.
+        /// </summary>
+        internal static string SUPP_char_skill {
+            get {
+                return ResourceManager.GetString("SUPP_char_skill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.zaklecie FROM uni.postacie p JOIN uni.pos_zak l ON l.id_postaci = p.id WHERE p.id = @character;.
+        /// </summary>
+        internal static string SUPP_char_spell {
+            get {
+                return ResourceManager.GetString("SUPP_char_spell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.cecha, l.wartosc_poczatkowa, l.schemat_rozwoju, l.aktualna_wartosc FROM uni.postacie p JOIN uni.pos_cec l ON l.id_postaci = p.id WHERE p.id = @character;.
+        /// </summary>
+        internal static string SUPP_char_stat {
+            get {
+                return ResourceManager.GetString("SUPP_char_stat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.zdolnosc, l.dod_inf FROM uni.postacie p JOIN uni.pos_zdo l ON l.id_postaci = p.id WHERE p.id = @character;.
+        /// </summary>
+        internal static string SUPP_char_talent {
+            get {
+                return ResourceManager.GetString("SUPP_char_talent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.bron, l.jakosc, l.zaekwipowany, l.ilosc FROM uni.postacie p JOIN uni.pos_bro l ON l.id_postaci = p.id WHERE p.id = @character;.
+        /// </summary>
+        internal static string SUPP_char_weapon {
+            get {
+                return ResourceManager.GetString("SUPP_char_weapon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT l.umiejetnosc, l.dod_inf FROM n_uni.bogowie b JOIN n_uni.bog_umi l ON b.nazwa = l.bog WHERE b.nazwa = @god;.
         /// </summary>
         internal static string SUPP_god_skill {
@@ -813,6 +1038,51 @@ namespace RPG_Lite {
         internal static string SUPP_race_talent {
             get {
                 return ResourceManager.GetString("SUPP_race_talent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT i.nazwa,l.bonus FROM (n_uni.zaklecia z JOIN n_uni.zak_prz l ON z.nazwa = l.zaklecie) JOIN n_uni.przedmioty i ON l.id_przedmiotu =i.id WHERE z.nazwa = @spell;.
+        /// </summary>
+        internal static string SUPP_spell_item {
+            get {
+                return ResourceManager.GetString("SUPP_spell_item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT l.cecha, l.wartosc FROM n_uni.zdolnosci t JOIN n_uni.zdo_cec l ON t.nazwa = l.zdolnosc WHERE t.nazwa = @talent;.
+        /// </summary>
+        internal static string SUPP_talent_stat {
+            get {
+                return ResourceManager.GetString("SUPP_talent_stat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXECUTE dbo.del_character(@character);.
+        /// </summary>
+        internal static string USER_Del_character {
+            get {
+                return ResourceManager.GetString("USER_Del_character", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM dbo.get_character(@character);.
+        /// </summary>
+        internal static string USER_Get_Character {
+            get {
+                return ResourceManager.GetString("USER_Get_Character", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT * FROM dbo.get_characters();.
+        /// </summary>
+        internal static string USER_Get_characters {
+            get {
+                return ResourceManager.GetString("USER_Get_characters", resourceCulture);
             }
         }
     }

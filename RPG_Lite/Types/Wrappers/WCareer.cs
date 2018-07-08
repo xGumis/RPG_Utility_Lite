@@ -17,5 +17,29 @@ namespace RPG_Lite.Types.Wrapper
         public Armor[] StartArmor { get; set; }
         public Item[] StartEquipment { get; set; }
         public Career[] AvailableCareer { get; set; }
+        public WCareer()
+        {
+            this.Name = "";
+            this.Type = "";
+            this.StatsScheme = null;
+            this.AvailableSkills = null;
+            this.AvailableTalents = null;
+            this.StartWeapons = null;
+            this.StartArmor = null;
+            this.StartEquipment = null;
+            this.AvailableCareer = null;
+        }
+        public WCareer(Types.Career career)
+        {
+            this.Name = career.Name;
+            this.Type = career.Type;
+            this.StatsScheme = career.StatsScheme;
+            this.AvailableSkills = career.AvailableSkills;
+            this.AvailableTalents = career.AvailableTalents;
+            this.StartWeapons = career.StartWeapons;
+            this.StartArmor = career.StartArmor;
+            this.StartEquipment = career.StartEquipment;
+            this.AvailableCareer = career.AvailableCareer;
+        }
     }
 }
