@@ -10,6 +10,7 @@ namespace RPG_Lite
     {
         private Dictionary<string, Types.AType> holdList;
         private Types.AType holdItem;
+        private Types.AType viewItem;
         private bool allFlag = false;
         public string[] GetTables()
         {
@@ -198,7 +199,7 @@ namespace RPG_Lite
                 Query.Change_Login(username, password);
             Query.Initiate();
         }
-        public void DeleteItem (string table, string key)
+        public void DeleteItem(string table, string key)
         {
             if (Query.is_Admin())
             {
@@ -349,9 +350,9 @@ namespace RPG_Lite
         }
         public void InsertItem()
         {
-            if(holdItem != null)
+            if (holdItem != null)
             {
-                if(holdItem.Key != null)
+                if (holdItem.Key != null)
                 {
                     if (Query.is_Admin())
                     {
@@ -394,8 +395,8 @@ namespace RPG_Lite
                         if (holdItem is Types.Item && int.Parse(holdItem.Key) != -1)
                         {
                             var item = holdItem as Types.Item;
-                            if(item.Name != null)
-                            Query.Add_Item(item);
+                            if (item.Name != null)
+                                Query.Add_Item(item);
                         }
                         #endregion
                         #region Rasy
@@ -409,16 +410,16 @@ namespace RPG_Lite
                         if (holdItem is Types.Skill)
                         {
                             var skill = holdItem as Types.Skill;
-                            if(skill.Characteristic.Key != null)
-                            Query.Add_Skill(skill);
+                            if (skill.Characteristic.Key != null)
+                                Query.Add_Skill(skill);
                         }
                         #endregion
                         #region Zaklęcia
                         if (holdItem is Types.Spell)
                         {
                             var spell = holdItem as Types.Spell;
-                            if(spell.RequiredTalent != null)
-                            Query.Add_Spell(spell);
+                            if (spell.RequiredTalent != null)
+                                Query.Add_Spell(spell);
                         }
                         #endregion
                         #region Zdolności
@@ -433,8 +434,8 @@ namespace RPG_Lite
                     if (holdItem is Types.Character && int.Parse(holdItem.Key) != -1)
                     {
                         var character = holdItem as Types.Character;
-                        if(character.Race.Key != null && character.WorshipedGod.Key != null && character.Name != null && character.CurrentCareer.Key != null )
-                        Query.Add_Character(character);
+                        if (character.Race.Key != null && character.WorshipedGod.Key != null && character.Name != null && character.CurrentCareer.Key != null)
+                            Query.Add_Character(character);
                     }
                     #endregion
                 }
@@ -444,7 +445,7 @@ namespace RPG_Lite
         {
             if (holdItem != null)
             {
-                if(value != null)
+                if (value != null)
                 {
                     if (Query.is_Admin())
                     {
@@ -613,7 +614,7 @@ namespace RPG_Lite
                         {
                             character.Name = value;
                             character.Id = 0;
-                        } 
+                        }
                         else if (column == Columns.Char_God)
                         {
                             var a = new Types.Wrapper.WGod();
@@ -657,76 +658,76 @@ namespace RPG_Lite
         public void GetItem(string table, string key)
         {
             #region Bogowie
-                if (table == "Bogowie")
-                {
-                    holdItem = Query.Rec_God(key);
-                }
+            if (table == "Bogowie")
+            {
+                viewItem = Query.Rec_God(key);
+            }
             #endregion
             #region Bronie
-                else if (table == "Bronie")
-                {
-                    holdItem = Query.Rec_Weapons(key);
-                }
+            else if (table == "Bronie")
+            {
+                viewItem = Query.Rec_Weapons(key);
+            }
             #endregion
             #region Cechy
-                else if (table == "Cechy")
-                {
-                    holdItem = Query.Rec_Stat(key);
-                }
+            else if (table == "Cechy")
+            {
+                viewItem = Query.Rec_Stat(key);
+            }
             #endregion
             #region Pancerze
-                else if (table == "Pancerze")
-                {
-                    holdItem = Query.Rec_Armor(key);
-                }
+            else if (table == "Pancerze")
+            {
+                viewItem = Query.Rec_Armor(key);
+            }
             #endregion
             #region Profesje
-                else if (table == "Profesje")
-                {
-                    holdItem = Query.Rec_Career(key);
-                }
+            else if (table == "Profesje")
+            {
+                viewItem = Query.Rec_Career(key);
+            }
             #endregion
             #region Przedmioty
-                else if (table == "Przedmioty")
-                {
-                    holdItem = Query.Rec_Items(int.Parse(key));
-                }
+            else if (table == "Przedmioty")
+            {
+                viewItem = Query.Rec_Items(int.Parse(key));
+            }
             #endregion
             #region Rasy
-                else if (table == "Rasy")
-                {
-                    holdItem = Query.Rec_Race(key);
-                }
+            else if (table == "Rasy")
+            {
+                viewItem = Query.Rec_Race(key);
+            }
             #endregion
             #region Umiejętności
-                else if (table == "Umiejętności")
-                {
-                    holdItem = Query.Rec_Skill(key);
-                }
+            else if (table == "Umiejętności")
+            {
+                viewItem = Query.Rec_Skill(key);
+            }
             #endregion
             #region Zaklęcia
-                else if (table == "Zaklęcia")
-                {
-                    holdItem = Query.Rec_Spell(key);
-                }
+            else if (table == "Zaklęcia")
+            {
+                viewItem = Query.Rec_Spell(key);
+            }
             #endregion
             #region Zdolności
             else if (table == "Zdolności")
             {
-                 holdItem = Query.Rec_Talent(key);
+                viewItem = Query.Rec_Talent(key);
             }
             #endregion
             #region Postaci
             else if (table == "Postaci")
             {
-                if(Query.is_Admin())
-                    holdItem = Query.Rec_Character(int.Parse(key),true);
+                if (Query.is_Admin())
+                    viewItem = Query.Rec_Character(int.Parse(key), true);
                 else
-                    holdItem = Query.Rec_Character(int.Parse(key), false);
+                    viewItem = Query.Rec_Character(int.Parse(key), false);
             }
             #endregion
         }
-        public void UpdateItemList(string column, Dictionary<string,string>[] values)
+        public void UpdateItemList(string column, Dictionary<string, string>[] values)
         {
             if (holdItem != null)
             {
@@ -738,22 +739,22 @@ namespace RPG_Lite
                         if (holdItem is Types.God)
                         {
                             var god = new Types.Wrapper.WGod(holdItem as Types.God);
-                            if(column == Columns.Con_Talent)
+                            if (column == Columns.Con_Talent)
                             {
                                 var a = new List<Types.Talent>();
-                                foreach(var talent in values)
+                                foreach (var talent in values)
                                 {
                                     var b = new Types.Wrapper.WTalent();
-                                    foreach(var col in talent)
+                                    foreach (var col in talent)
                                     {
                                         if (col.Key == Columns.Name) b.Name = col.Value;
-                                        else if(col.Key == Columns.Add_Info) b.AdditionalInfo = col.Value;
+                                        else if (col.Key == Columns.Add_Info) b.AdditionalInfo = col.Value;
                                     }
                                     a.Add(new Types.Talent(b));
                                 }
                                 god.Talents = a.ToArray();
                             }
-                            if(column == Columns.Con_Skill)
+                            if (column == Columns.Con_Skill)
                             {
                                 var a = new List<Types.Skill>();
                                 foreach (var skill in values)
@@ -992,7 +993,7 @@ namespace RPG_Lite
                                     if (col.Key == Columns.Name) b.Name = col.Value;
                                     else if (col.Key == Columns.Con_StartStat) b.Starting = int.Parse(col.Value);
                                     else if (col.Key == Columns.Con_AdvStat) b.Advance = int.Parse(col.Value);
-                                    else if (col.Key == Columns.Con_CurrStat)b.Current = int.Parse(col.Value);
+                                    else if (col.Key == Columns.Con_CurrStat) b.Current = int.Parse(col.Value);
                                 }
                                 a.Add(new Types.Stat(b));
                             }
@@ -1068,6 +1069,389 @@ namespace RPG_Lite
                     #endregion
                 }
             }
+        }
+        public void Edit()
+        {
+            holdItem = viewItem;
+        }
+        public object ReadColumn(string column)
+        {
+            if (viewItem != null)
+            {
+                #region Bogowie
+                if (viewItem is Types.God)
+                {
+                    var god = viewItem as Types.God;
+                    if (column == Columns.Name) return god.Name;
+                    else if (column == Columns.God_Symbol) return god.Symbol;
+                    else if (column == Columns.Desc) return god.Description;
+                }
+                #endregion
+                #region Bronie
+                if (viewItem is Types.Weapon)
+                {
+                    var weapon = viewItem as Types.Weapon;
+                    if (column == Columns.Name) return weapon.Name;
+                    else if (column == Columns.Weapon_Treats) return weapon.Treats;
+                    else if (column == Columns.Desc) return weapon.Description;
+                    else if (column == Columns.Availability) return weapon.Availability;
+                    else if (column == Columns.Weight) return weapon.Weight;
+                    else if (column == Columns.Price) return weapon.Price ;
+                    else if (column == Columns.Weapon_Range) return weapon.Range;
+                    else if (column == Columns.Weapon_Reload) return weapon.Reload;
+                    else if (column == Columns.Weapon_Dmg) return weapon.Damage ;
+                    else if (column == Columns.Weapon_Category) return weapon.Category ;
+                }
+                #endregion
+                #region Cechy
+                if (viewItem is Types.Stat)
+                {
+                    var stat = viewItem as Types.Stat;
+                    if (column == Columns.Name) return stat.Name;
+                    else if (column == Columns.Desc) return stat.Description;
+                }
+                #endregion
+                #region Pancerze
+                if (viewItem is Types.Armor)
+                {
+                    var armor = viewItem as Types.Armor;
+                    if (column == Columns.Name) return armor.Name;
+                    else if (column == Columns.Desc) return armor.Description;
+                    else if (column == Columns.Weight) return armor.Weight;
+                    else if (column == Columns.Availability) return armor.Availability;
+                    else if (column == Columns.Armor_Cover) return armor.Cover;
+                    else if (column == Columns.Armor_Points) return armor.Points;
+                }
+                #endregion
+                #region Profesje
+                if (viewItem is Types.Career)
+                {
+                    var career = viewItem as Types.Career;
+                    if (column == Columns.Name) return career.Name ;
+                    else if (column == Columns.Career_Type) return career.Type ;
+                }
+                #endregion
+                #region Przedmioty
+                if (viewItem is Types.Item)
+                {
+                    var item = viewItem as Types.Item;
+                    if (column == Columns.Name) return item.Name ;
+                    else if (column == Columns.Desc) return item.Description ;
+                    else if (column == Columns.Availability) return item.Availability ;
+                    else if (column == Columns.Weight) return item.Weight ;
+                    else if (column == Columns.Price) return item.Price ;
+                }
+                #endregion
+                #region Rasy
+                if (viewItem is Types.Race)
+                {
+                    var race = viewItem as Types.Race;
+                    if (column == Columns.Name) return race.Name ;
+                    else if (column == Columns.Desc) return race.Description ;
+                    else if (column == Columns.Race_History) return race.History ;
+                    else if (column == Columns.Race_Tips) return race.Tips ;
+                }
+                #endregion
+                #region Umiejętności
+                if (viewItem is Types.Skill)
+                {
+                    var skill = viewItem as Types.Skill;
+                    if (column == Columns.Name) return skill.Name ;
+                    else if (column == Columns.Desc) return skill.Description ;
+                    else if (column == Columns.Skill_Type) return skill.Type ;
+                    else if (column == Columns.Skill_Stat) return skill.Characteristic.Name;
+                }
+                #endregion
+                #region Zaklęcia
+                if (viewItem is Types.Spell)
+                {
+                    var spell = viewItem as Types.Spell;
+                    if (column == Columns.Name) return spell.Name ;
+                    else if (column == Columns.Desc) return spell.Description ;
+                    else if (column == Columns.Spell_MType) return spell.MagicType ;
+                    else if (column == Columns.Spell_Lvl) return spell.RequiredLevel;
+                    else if (column == Columns.Spell_Cast) return spell.CastTime;
+                    else if (column == Columns.Spell_Durat) return spell.Duration;
+                    else if (column == Columns.Spell_ReqTal) return spell.RequiredTalent.Name;
+                    else if (column == Columns.Con_Item) return spell.SupportingItem.Name;
+                    else if (column == Columns.Spell_Bonus) return spell.SupportingItem.Bonus;
+                }
+                #endregion
+                #region Zdolności
+                if (viewItem is Types.Talent)
+                {
+                    var talent = viewItem as Types.Talent;
+                    if (column == Columns.Name) return talent.Name ;
+                    else if (column == Columns.Desc) return talent.Description ;
+                    else if (column == Columns.Con_stat) return talent.Bonus.Name;
+                    else if (column == Columns.Value) return talent.Bonus.Advance;
+                }
+                #endregion
+                #region Postaci
+                if (viewItem is Types.Character)
+                {
+                    var character = viewItem as Types.Character;
+                    if (column == Columns.Name) return character.Name ;
+                    else if (column == Columns.Char_God) return character.WorshipedGod.Name;
+                    else if (column == Columns.Con_Race) return character.Race.Name;
+                    else if (column == Columns.Con_Career) return character.CurrentCareer.Name;
+                    else if (column == Columns.Char_AddInfo) return character.AdditionalInfo ;
+                    else if (column == Columns.Char_Gender) return character.Gender ;
+                    else if (column == Columns.Char_EyeColor) return character.EyeColor ;
+                    else if (column == Columns.Char_HairColor) return character.HairColor ;
+                    else if (column == Columns.Char_StarSign) return character.StarSign ;
+                    else if (column == Columns.Char_Features) return character.SpecialFeatures ;
+                    else if (column == Columns.Char_BirthPlace) return character.BirthPlace ;
+                    else if (column == Columns.Char_Family) return character.Family ;
+                    else if (column == Columns.Char_MentalCondition) return character.MentalCondition ;
+                    else if (column == Columns.Char_Scars) return character.CutsBruises ;
+                    else if (column == Columns.Char_History) return character.History ;
+                    else if (column == Columns.Char_EXP) return character.Exp;
+                    else if (column == Columns.Char_Age) return character.Age;
+                    else if (column == Columns.Char_Weight) return character.Weight;
+                    else if (column == Columns.Char_Height) return character.Height;
+                }
+                #endregion
+            }
+            return null;
+        }
+        public Dictionary<string,object>[] ReadList(string column)
+        {
+            if (viewItem != null)
+            {
+                var a = new List<Dictionary<string, object>>();
+                #region Bogowie
+                if (viewItem is Types.God)
+                {
+                    var god = viewItem as Types.God;
+                    if (column == Columns.Con_Talent)
+                    {
+                        foreach (var talent in god.Talents)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name, talent.Name);
+                            b.Add(Columns.Add_Info, talent.AdditionalInfo);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Skill)
+                    {
+                        foreach (var skill in god.Skills)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name, skill.Name);
+                            b.Add(Columns.Add_Info, skill.AdditionalInfo);
+                            a.Add(b);
+                        }
+                    }
+                }
+                #endregion
+                #region Profesje
+                if (viewItem is Types.Career)
+                {
+                    var career = viewItem as Types.Career;
+                    if (column == Columns.Con_Talent)
+                    {
+                        foreach (var talent in career.AvailableTalents)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name, talent.Name);
+                            b.Add(Columns.Add_Info, talent.AdditionalInfo);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Skill)
+                    {
+                        foreach (var skill in career.AvailableSkills)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name, skill.Name);
+                            b.Add(Columns.Add_Info, skill.AdditionalInfo);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_stat)
+                    {
+                        foreach (var stat in career.StatsScheme)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name, stat.Name);
+                            b.Add(Columns.Con_AdvStat, stat.Advance);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Item)
+                    {
+                        foreach (var item in career.StartEquipment)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Id, item.Id);
+                            b.Add(Columns.Name, item.Name);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Weapon)
+                    {
+                        foreach (var weapon in career.StartWeapons)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name, weapon.Name);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Armor)
+                    {
+                        foreach (var armor in career.StartArmor)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name, armor.Name);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Career)
+                    {
+                        foreach (var car in career.AvailableCareer)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name, car.Name);
+                            a.Add(b);
+                        }
+                    }
+                }
+                #endregion
+                #region Rasy
+                if (viewItem is Types.Race)
+                {
+                    var race = viewItem as Types.Race;
+                    if (column == Columns.Con_Talent)
+                    {
+                        foreach (var talent in race.StartingTalents)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,talent.Name);
+                            b.Add(Columns.Add_Info,talent.AdditionalInfo);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Skill)
+                    {
+                        foreach (var skill in race.StartingSkills)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,skill.Name);
+                            b.Add(Columns.Add_Info,skill.AdditionalInfo);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_stat)
+                    {
+                        foreach (var stat in race.StartingStats)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,stat.Name);
+                            b.Add(Columns.Con_StartStat, stat.Starting);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Career)
+                    {
+                        foreach (var car in race.PossibleCareer)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,car.Name);
+                            a.Add(b);
+                        }
+                    }
+                }
+                #endregion
+                #region Postaci
+                if (viewItem is Types.Character)
+                {
+                    var character = viewItem as Types.Character;
+                    if (column == Columns.Con_Talent)
+                    {
+                        foreach (var talent in character.Talents)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,talent.Name);
+                            b.Add(Columns.Add_Info,talent.AdditionalInfo);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Skill)
+                    {
+                        foreach (var skill in character.Skills)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,skill.Name);
+                            b.Add(Columns.Add_Info,skill.AdditionalInfo);
+                            b.Add(Columns.Level,skill.Level);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_stat)
+                    {
+                        foreach (var stat in character.Stats)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,stat.Name);
+                            b.Add(Columns.Con_StartStat,stat.Starting);
+                            b.Add(Columns.Con_AdvStat,stat.Advance);
+                            b.Add(Columns.Con_CurrStat,stat.Current);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Item)
+                    {
+                        foreach (var item in character.Items)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Id,item.Id);
+                            b.Add(Columns.Add_Info,item.AdditionalInfo);
+                            b.Add(Columns.Quality,item.Quality);
+                            b.Add(Columns.Quantity,item.Quantity);
+                            b.Add(Columns.Name, item.Name);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Weapon)
+                    {
+                        foreach (var weapon in character.Weapons)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,weapon.Name);
+                            b.Add(Columns.Quality,weapon.Quality);
+                            b.Add(Columns.Quantity,weapon.Quantity);
+                            b.Add(Columns.Con_Equipped,weapon.Equipped);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Armor)
+                    {
+                        foreach (var armor in character.Armor)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,armor.Name);
+                            b.Add(Columns.Quality,armor.Quality);
+                            b.Add(Columns.Quantity,armor.Quantity);
+                            b.Add(Columns.Con_Equipped,armor.Equipped);
+                            a.Add(b);
+                        }
+                    }
+                    if (column == Columns.Con_Spell)
+                    {
+                        foreach (var car in character.Spells)
+                        {
+                            var b = new Dictionary<string, object>();
+                            b.Add(Columns.Name,car.Name);
+                            a.Add(b);
+                        }
+                    }
+                }
+                #endregion
+                return a.ToArray();
+            }
+            return null;
         }
     }
 }

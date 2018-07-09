@@ -16,7 +16,10 @@ namespace RPG_Lite
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginPage());
+            var model = new DBOperator();
+            var view = new View();
+            var presenter = new Presenter(model, view);
+            Application.Run(view);
         }
     }
 }

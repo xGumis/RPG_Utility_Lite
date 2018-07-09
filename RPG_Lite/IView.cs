@@ -10,6 +10,7 @@ namespace RPG_Lite
     {
         event Func<string,List<string[]>> GetList;
         event Func<string, string[]> GetColumns;
+        event Action StartEdit;
         event Func<string[]> GetTables;
         event Action<string, Dictionary<string,string>[]> UpdateItemList;
         event Action<string, string> DeleteItem;
@@ -20,5 +21,7 @@ namespace RPG_Lite
         event Action<string, string> RequestLogin;
         event Func<string> GetRole;
         event Action SwitchMode;
+        event Func<string, object> ReadColumn;
+        event Func<string, Dictionary<string, object>[]> ReadItemList;
     }
 }

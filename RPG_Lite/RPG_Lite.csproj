@@ -73,12 +73,6 @@
     </Compile>
     <Compile Include="DBOperator.cs" />
     <Compile Include="IView.cs" />
-    <Compile Include="LoginPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginPage.Designer.cs">
-      <DependentUpon>LoginPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +100,12 @@
     <Compile Include="Types\Not-Aggr\Stat.cs" />
     <Compile Include="Types\Wrappers\WTalent.cs" />
     <Compile Include="Types\Wrappers\WWeapon.cs" />
+    <Compile Include="View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Columns.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Columns.Designer.cs</LastGenOutput>
@@ -113,9 +113,6 @@
     <EmbeddedResource Include="Commands.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Commands.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginPage.resx">
-      <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

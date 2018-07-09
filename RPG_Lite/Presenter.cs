@@ -26,6 +26,24 @@ namespace RPG_Lite
             view.UpdateItem += View_UpdateItem;
             view.UpdateItemList += View_UpdateItemList;
             view.SubmitItem += View_SubmitItem;
+            view.StartEdit += View_StartEdit;
+            view.ReadColumn += View_ReadColumn;
+            view.ReadItemList += View_ReadItemList;
+        }
+
+        private Dictionary<string, object>[] View_ReadItemList(string column)
+        {
+            return model.ReadList(column);
+        }
+
+        private object View_ReadColumn(string column)
+        {
+            return model.ReadColumn(column);
+        }
+
+        private void View_StartEdit()
+        {
+            model.Edit();
         }
 
         private void View_SubmitItem()
