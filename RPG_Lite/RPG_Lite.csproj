@@ -106,6 +106,90 @@
     <Compile Include="View.Designer.cs">
       <DependentUpon>View.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\List.Designer.cs">
+      <DependentUpon>List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Armor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Armor.Designer.cs">
+      <DependentUpon>Armor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Career.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Career.Designer.cs">
+      <DependentUpon>Career.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Character.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Character.Designer.cs">
+      <DependentUpon>Character.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\God.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\God.Designer.cs">
+      <DependentUpon>God.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Race.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Race.Designer.cs">
+      <DependentUpon>Race.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Skill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Skill.Designer.cs">
+      <DependentUpon>Skill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Spell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Spell.Designer.cs">
+      <DependentUpon>Spell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Stat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Stat.Designer.cs">
+      <DependentUpon>Stat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Talent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Talent.Designer.cs">
+      <DependentUpon>Talent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Types\Weapon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Types\Weapon.Designer.cs">
+      <DependentUpon>Weapon.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Columns.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Columns.Designer.cs</LastGenOutput>
@@ -123,6 +207,51 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View.resx">
+      <DependentUpon>View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\List.resx">
+      <DependentUpon>List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Armor.resx">
+      <DependentUpon>Armor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Career.resx">
+      <DependentUpon>Career.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Character.resx">
+      <DependentUpon>Character.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\God.resx">
+      <DependentUpon>God.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Race.resx">
+      <DependentUpon>Race.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Skill.resx">
+      <DependentUpon>Skill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Spell.resx">
+      <DependentUpon>Spell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Stat.resx">
+      <DependentUpon>Stat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Talent.resx">
+      <DependentUpon>Talent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Types\Weapon.resx">
+      <DependentUpon>Weapon.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

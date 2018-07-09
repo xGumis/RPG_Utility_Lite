@@ -193,11 +193,12 @@ namespace RPG_Lite
             else
                 return "user";
         }
-        public void Login(string username, string password)
+        public bool Login(string username, string password)
         {
-            if (username != null && password != null)
-                Query.Change_Login(username, password);
+            Query.Change_Login(username, password);
             Query.Initiate();
+            allFlag = false;
+            return Query.is_Logged();
         }
         public void DeleteItem(string table, string key)
         {

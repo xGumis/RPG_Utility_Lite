@@ -91,9 +91,9 @@ namespace RPG_Lite
             return model.GetColumnNames(table);
         }
 
-        private void View_RequestLogin(string user, string pass)
+        private bool View_RequestLogin(string user, string pass)
         {
-            model.Login(user,pass);
+            return model.Login(user,pass);
         }
 
         private string View_GetRole()

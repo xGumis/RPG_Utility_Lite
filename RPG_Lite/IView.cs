@@ -18,7 +18,7 @@ namespace RPG_Lite
         event Action<string, string> UpdateItem;
         event Action<string> CreateItem;
         event Action SubmitItem;
-        event Action<string, string> RequestLogin;
+        event Func<string, string,bool> RequestLogin;
         event Func<string> GetRole;
         event Action SwitchMode;
         event Func<string, object> ReadColumn;
