@@ -124,8 +124,9 @@ systemu \textit{Microsoft SQL Server 2017 (MS SQL)}. Podczas tworzenia aplikacji
 \end{figure}
 
 \newpage
-\section{Szczegóły techniczne}
-Po zaprojektowaniu modelu relacyjnego mogliśmy w miarę prosty sposób stworzyć bazę danych i dodać ją do projektu (solucji).
+\section{Szczegóły techniczne i implementacja}
+Aplikacja została stworzona przy użyciu \textit{Windows Forms} z wykorzystaniem języka \textit{C\#}. Środowisko, z którego korzystaliśmy, to \textit{Visual Studio 2017}. Spośród dostępnych wzorców projektowych zdecydowaliśmy się na \textit{MVP (Model, View, Presenter}. Ponadto nasza baza danych jest podpięta pod \textit{Azure SQL Database}, dzięki czemu możemy zarządzać bazą również w zdalny sposób.
+\\\\Po zaprojektowaniu modelu relacyjnego mogliśmy w miarę prosty sposób stworzyć bazę danych i dodać ją do projektu (solucji).
 \\\\Przykładowa implementacja tabeli:
 \begin{verbatim}
     CREATE TABLE [uni].[pos_bro] (
@@ -137,8 +138,67 @@ Po zaprojektowaniu modelu relacyjnego mogliśmy w miarę prosty sposób stworzy�
     PRIMARY KEY CLUSTERED ([id_postaci] ASC, [jakosc] ASC, [bron] ASC),
     FOREIGN KEY ([id_postaci]) REFERENCES [n_uni].[postacie] ([id])
     );
-
 \end{verbatim}
+\subsection*{Użyte narzędzia}
+\begin{itemize}
+    \item Micorosft Visual Studio 2017
+    \item Microsoft Azure
+    \item Microsoft SQL Server
+    \item GitHub
+\end{itemize}
+\subsection*{Podział plików}
+\subsubsection*{Typy}
+Krótko mówiąc typy potrzebne nam są do przeniesienia encji z języka \textit{SQL} na język \textit{C\#} oraz do przypisania odpowiednich wartości z bazy danych (wartości z kolumn) do odpowiednich pól w aplikacji.
+\\Podział na:
+\begin{itemize}
+    \item Zagregowane - połączone; takie, które mają nadrzędną relację, są połączone z innymi encjami (w skrócie - posiadają klucz obcy)
+    \item Niezagregowane - niepołączone, nadrzędne
+    \item Wrappery - odwzorowanie powyższych typów w celu połączenia ich z modelem
+\end{itemize}
+\begin{figure}[h!]
+\begin{center}
+    
+\centering
+\includegraphics[]{typyag.png}\hfill
+\includegraphics[]{typynag.png}\hfill
+\includegraphics[]{wrapper.png}
+
+\end{center}
+\end{figure}
+
+\subsubsection*{Widoki}
+W tej sekcji znajdują się głównie kontrolki obsługujące dodawanie danych do bazy.
+
+\begin{figure}[h!]
+\begin{center}
+    
+\centering
+\includegraphics[]{views1.png}\hfill
+\includegraphics[]{kontrolka1.png}
+
+\end{center}
+\end{figure}
+\textit{Login.cs} to widoczne w rozdziale \textit{3 Obsługa} panel logowania, a \textit{List.cs} to lista (np. Cech) z tego samego rozdziału.
+
+\subsubsection*{Prezenter, obsługa bazy, zapytania}
+Ostatnią już sekcją plików jest, można rzec, sekcja najważniejsza, odpowiedzialna za działanie i zachowanie aplikacji.
+
+\begin{figure}[h!]
+\begin{center}
+    
+\centering
+\includegraphics[]{pliki1.png}
+
+\end{center}
+\end{figure}
+
+\begin{itemize}
+    \item \textit{DBOperator.cs} - pozyskiwanie danych z bazy oraz realizacja zadań (na podstawie \textit{Query.cs}
+    \item \textit{IView.cs} - interfejs dla głównego widoku
+    \item \textit{Presenter.cs} - realizacja zdarzeń i połączenie widoku z modelem
+    \item \textit{Program.cs} - ustawienia początkowe i parametry, wg których program ma zostać uruchomiony
+    \item \textit{Query.cs} - obsługa zapytań i wykonywanie operacji na bazie danych
+\end{itemize}
 
 \newpage
 \section{Problemy}
@@ -159,8 +219,16 @@ W trakcie tworzenia aplikacji napotkaliśmy (co zdarza się zawsze) kilka proble
     która zamyka obecne połączenie sql, dzięki czemu możemy wywołać nowe.
     \item Problemem jest też na pewno obszerność - wydawać się może, że jest to mała aplikacja, jednak ilość tematów, sekcji i informacji jest ogromna i w miarę rozbudowy, można się przez przypadek łatwo zgubić (i chodzi tutaj zdecydowanie o stronę programistyczną).
 \end{itemize}
-
-\section{Bibliografia}
+\newpage
+\section{Dalszy rozwój}
+\begin{itemize}
+    \item Stworzenie aplikacji mobilnej oraz przeniesienie na środowisko internetowe
+    \item Stworzenie i udostępnienie API
+    \item Ciągły rozwój obecnych funkcjonalności
+    \item Ulepszenie rejestracji
+    \item Dostęp do wielu uniwersów 
+    \item Poprawianie interfejsu graficznego
+\end{itemize}
 
 
 \end{document}
