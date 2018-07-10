@@ -250,7 +250,7 @@ namespace RPG_Lite {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO n_uni.ras_pro (profesja,rasa) VALUES (@career,@race);.
+        ///   Looks up a localized string similar to INSERT INTO n_uni.ras_pro (profesja,nazwa) VALUES (@career,@race);.
         /// </summary>
         internal static string ADD_race_career {
             get {
@@ -412,7 +412,7 @@ namespace RPG_Lite {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DELETE FROM n_uni.pro_zdoWHERE profesja = @career ;.
+        ///   Looks up a localized string similar to DELETE FROM n_uni.pro_zdo WHERE profesja = @career ;.
         /// </summary>
         internal static string DELETE_career_talent {
             get {
@@ -547,7 +547,7 @@ namespace RPG_Lite {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DELETE FROM n_uni.ras_pro WHERE rasa = @race;.
+        ///   Looks up a localized string similar to DELETE FROM n_uni.ras_pro WHERE nazwa = @race;.
         /// </summary>
         internal static string DELETE_race_career {
             get {
@@ -1006,7 +1006,7 @@ namespace RPG_Lite {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT l.profesja FROM n_uni.rasy r JOIN n_uni.ras_pro l ON r.nazwa = l.rasa WHERE r.nazwa = @race;.
+        ///   Looks up a localized string similar to SELECT l.profesja FROM n_uni.rasy r JOIN n_uni.ras_pro l ON r.nazwa = l.nazwa WHERE r.nazwa = @race;.
         /// </summary>
         internal static string SUPP_race_career {
             get {

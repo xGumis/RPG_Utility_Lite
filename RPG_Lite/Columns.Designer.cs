@@ -61,7 +61,7 @@ namespace RPG_Lite {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to dod_info.
+        ///   Looks up a localized string similar to dod_inf.
         /// </summary>
         internal static string Add_Info {
             get {

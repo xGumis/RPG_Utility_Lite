@@ -20,7 +20,7 @@ namespace RPG_Lite
         public event Func<string> GetRole;
         public event Func<string[]> GetTables;
         public event Func<string, object> ReadColumn;
-        public event Func<string, Dictionary<string, object>[]> ReadItemList;
+        public event Func<string, Dictionary<string, string>[]> ReadItemList;
         public event Func<string, string,bool> RequestLogin;
         public event Action StartEdit;
         public event Action SubmitItem;

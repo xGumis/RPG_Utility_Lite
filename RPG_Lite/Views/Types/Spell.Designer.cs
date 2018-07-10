@@ -88,6 +88,7 @@
             this.comboBoxTalent.Name = "comboBoxTalent";
             this.comboBoxTalent.Size = new System.Drawing.Size(108, 21);
             this.comboBoxTalent.TabIndex = 20;
+            this.comboBoxTalent.DropDown += new System.EventHandler(this.comboBoxTalent_DropDown);
             this.comboBoxTalent.SelectedIndexChanged += new System.EventHandler(this.comboBoxTalent_SelectedIndexChanged);
             // 
             // labelTalent
@@ -185,6 +186,7 @@
             this.comboBoxItem.Name = "comboBoxItem";
             this.comboBoxItem.Size = new System.Drawing.Size(108, 21);
             this.comboBoxItem.TabIndex = 30;
+            this.comboBoxItem.DropDown += new System.EventHandler(this.comboBoxItem_DropDown);
             this.comboBoxItem.SelectedIndexChanged += new System.EventHandler(this.comboBoxItem_SelectedIndexChanged);
             // 
             // numericUpDownBonus
@@ -203,6 +205,7 @@
             this.textBoxDesc.Location = new System.Drawing.Point(4, 243);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
+            this.textBoxDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxDesc.Size = new System.Drawing.Size(167, 103);
             this.textBoxDesc.TabIndex = 33;
             this.textBoxDesc.TextChanged += new System.EventHandler(this.textBoxDesc_TextChanged);

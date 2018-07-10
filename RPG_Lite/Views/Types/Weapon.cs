@@ -41,6 +41,19 @@ namespace RPG_Lite.Views.Types
             numericUpDownReload.Value = decimal.Parse(reload.ToString());
             numericUpDownWeight.Value = decimal.Parse(weight.ToString());
         }
+        public void OnlyRead()
+        {
+            textBoxName.ReadOnly = true;
+            textBoxDesc.ReadOnly = true;
+            textBoxPrice.ReadOnly = true;
+            comboBoxAvailability.Enabled = false;
+            numericUpDownWeight.Enabled = false;
+            textBoxCategory.ReadOnly = true;
+            textBoxDamage.ReadOnly = true;
+            numericUpDownRange.Enabled = false;
+            numericUpDownReload.Enabled = false;
+            textBoxTreats.ReadOnly = true;
+        }
         private void textBoxCategory_TextChanged(object sender, EventArgs e)
         {
             UpdateItem(Columns.Weapon_Category, textBoxCategory.Text);

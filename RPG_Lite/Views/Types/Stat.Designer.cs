@@ -53,6 +53,7 @@
             this.textBoxDesc.Location = new System.Drawing.Point(3, 75);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
+            this.textBoxDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxDesc.Size = new System.Drawing.Size(166, 112);
             this.textBoxDesc.TabIndex = 1;
             this.textBoxDesc.TextChanged += new System.EventHandler(this.textBoxDesc_TextChanged);

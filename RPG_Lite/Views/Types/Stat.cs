@@ -26,6 +26,11 @@ namespace RPG_Lite.Views.Types
             textBoxName.Text = name.ToString();
             textBoxDesc.Text = desc.ToString();
         }
+        public void OnlyRead()
+        {
+            textBoxName.ReadOnly = true;
+            textBoxDesc.ReadOnly = true;
+        }
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             UpdateItem(Columns.Name, textBoxName.Text);

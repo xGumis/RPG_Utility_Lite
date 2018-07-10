@@ -178,7 +178,7 @@
     <value>SELECT l.umiejetnosc, l.dod_inf FROM n_uni.bogowie b JOIN n_uni.bog_umi l ON b.nazwa = l.bog WHERE b.nazwa = @god;</value>
   </data>
   <data name="SUPP_race_career" xml:space="preserve">
-    <value>SELECT l.profesja FROM n_uni.rasy r JOIN n_uni.ras_pro l ON r.nazwa = l.rasa WHERE r.nazwa = @race;</value>
+    <value>SELECT l.profesja FROM n_uni.rasy r JOIN n_uni.ras_pro l ON r.nazwa = l.nazwa WHERE r.nazwa = @race;</value>
   </data>
   <data name="SUPP_race_skill" xml:space="preserve">
     <value>SELECT l.umiejetnosc, l.dod_inf FROM n_uni.rasy r JOIN n_uni.ras_umi l ON r.nazwa = l.rasa WHERE r.nazwa = @race;</value>
@@ -277,7 +277,7 @@
     <value>INSERT INTO n_uni.bog_zdo (zdolnosc,bog,dod_inf) VALUES (@talent,@god,@addinfo);</value>
   </data>
   <data name="ADD_race_career" xml:space="preserve">
-    <value>INSERT INTO n_uni.ras_pro (profesja,rasa) VALUES (@career,@race);</value>
+    <value>INSERT INTO n_uni.ras_pro (profesja,nazwa) VALUES (@career,@race);</value>
   </data>
   <data name="ADD_race_skill" xml:space="preserve">
     <value>INSERT INTO n_uni.ras_umi (umiejetnosc,rasa,dod_inf) VALUES (@skill,@race,@addinfo);</value>
@@ -316,7 +316,7 @@
     <value>DELETE FROM n_uni.pro_cec WHERE profesja = @career;</value>
   </data>
   <data name="DELETE_career_talent" xml:space="preserve">
-    <value>DELETE FROM n_uni.pro_zdoWHERE profesja = @career ;</value>
+    <value>DELETE FROM n_uni.pro_zdo WHERE profesja = @career ;</value>
   </data>
   <data name="DELETE_career_weapon" xml:space="preserve">
     <value>DELETE FROM n_uni.pro_bro WHERE profesja = @career;</value>
@@ -337,7 +337,7 @@
     <value>DELETE FROM n_uni.rasy WHERE nazwa = @race;</value>
   </data>
   <data name="DELETE_race_career" xml:space="preserve">
-    <value>DELETE FROM n_uni.ras_pro WHERE rasa = @race;</value>
+    <value>DELETE FROM n_uni.ras_pro WHERE nazwa = @race;</value>
   </data>
   <data name="DELETE_race_skill" xml:space="preserve">
     <value>DELETE FROM n_uni.ras_umi WHERE rasa = @race;</value>

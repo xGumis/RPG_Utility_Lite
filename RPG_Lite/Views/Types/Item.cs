@@ -31,6 +31,14 @@ namespace RPG_Lite.Views.Types
             textBoxPrice.Text = price as string;
             numericUpDownWeight.Value = decimal.Parse(weight.ToString());
         }
+        public void OnlyRead()
+        {
+            textBoxName.ReadOnly = true;
+            textBoxDesc.ReadOnly = true;
+            textBoxPrice.ReadOnly = true;
+            comboBoxAvailability.Enabled = false;
+            numericUpDownWeight.Enabled = false;
+        }
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             UpdateItem(Columns.Name, textBoxName.Text);

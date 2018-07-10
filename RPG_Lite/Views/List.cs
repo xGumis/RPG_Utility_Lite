@@ -25,7 +25,7 @@ namespace RPG_Lite.Views
         public event Action<string, string> UpdateItem;
         public event Action<string, Dictionary<string, string>[]> UpdateItemList;
         public event Func<string, object> ReadColumn;
-        public event Func<string, Dictionary<string, object>[]> ReadItemList;
+        public event Func<string, Dictionary<string, string>[]> ReadItemList;
         private bool admin;
         private string table;
         private string key;
@@ -91,7 +91,8 @@ namespace RPG_Lite.Views
         {
             key = listView_Records.SelectedItems[0].Tag.ToString();
             LoadItem(table, key);
-        }//okno do czytania
+            AddEditWindow(true, true);
+        }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
@@ -119,16 +120,17 @@ namespace RPG_Lite.Views
         private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Create(table);
-            AddEditWindow(false);
+            AddEditWindow(false,false);
         }
-        private void AddEditWindow(bool load)
+        private void AddEditWindow(bool load,bool view)
         {
-            var window = new Edit(table,load);
+            var window = new Edit(table,load,view);
             window.End += Window_Close;
             window.UpdateItem += UpdateItem;
             window.UpdateItemList += UpdateItemList;
             window.ReadColumn += ReadColumn;
             window.ReadItemList += ReadItemList;
+            window.GetList += LoadList;
             window.AddPanel();
             window.Show();
             this.Enabled = false;
@@ -149,7 +151,7 @@ namespace RPG_Lite.Views
             key = listView_Records.SelectedItems[0].Tag.ToString();
             LoadItem(table, key);
             EditItem();
-            AddEditWindow(true);
+            AddEditWindow(true,false);
         }
 
         private void pokażukryjToolStripMenuItem_Click(object sender, EventArgs e)

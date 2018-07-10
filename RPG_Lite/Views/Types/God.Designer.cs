@@ -37,15 +37,25 @@
             this.labelSymbol = new System.Windows.Forms.Label();
             this.labelSkill = new System.Windows.Forms.Label();
             this.listViewSkills = new System.Windows.Forms.ListView();
-            this.labelTalents = new System.Windows.Forms.Label();
-            this.listViewTalents = new System.Windows.Forms.ListView();
-            this.textBoxDesc = new System.Windows.Forms.TextBox();
-            this.labelDesc = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripSkill = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dodajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelTalents = new System.Windows.Forms.Label();
+            this.listViewTalents = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBoxDesc = new System.Windows.Forms.TextBox();
+            this.labelDesc = new System.Windows.Forms.Label();
+            this.edytujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripTalent = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dodajToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.edytujToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuńToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSymbol)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStripSkill.SuspendLayout();
+            this.contextMenuStripTalent.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -66,6 +76,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(90, 20);
             this.textBoxName.TabIndex = 4;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // labelName
             // 
@@ -115,12 +126,49 @@
             // 
             this.listViewSkills.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewSkills.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listViewSkills.ContextMenuStrip = this.contextMenuStripSkill;
             this.listViewSkills.Location = new System.Drawing.Point(6, 170);
             this.listViewSkills.Name = "listViewSkills";
             this.listViewSkills.Size = new System.Drawing.Size(135, 85);
             this.listViewSkills.TabIndex = 9;
             this.listViewSkills.UseCompatibleStateImageBehavior = false;
             this.listViewSkills.View = System.Windows.Forms.View.Details;
+            this.listViewSkills.ItemActivate += new System.EventHandler(this.listViewSkills_ItemActivate);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nazwa";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Dod. Inf.";
+            // 
+            // contextMenuStripSkill
+            // 
+            this.contextMenuStripSkill.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajToolStripMenuItem,
+            this.usuńToolStripMenuItem,
+            this.edytujToolStripMenuItem});
+            this.contextMenuStripSkill.Name = "contextMenuStrip1";
+            this.contextMenuStripSkill.Size = new System.Drawing.Size(108, 70);
+            this.contextMenuStripSkill.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripSkill_Opening);
+            // 
+            // dodajToolStripMenuItem
+            // 
+            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
+            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dodajToolStripMenuItem.Text = "Dodaj";
+            this.dodajToolStripMenuItem.Click += new System.EventHandler(this.dodajToolStripMenuItem_Click);
+            // 
+            // usuńToolStripMenuItem
+            // 
+            this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuńToolStripMenuItem.Text = "Usuń";
+            this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
             // 
             // labelTalents
             // 
@@ -135,12 +183,24 @@
             // 
             this.listViewTalents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewTalents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listViewTalents.ContextMenuStrip = this.contextMenuStripTalent;
             this.listViewTalents.Location = new System.Drawing.Point(6, 275);
             this.listViewTalents.Name = "listViewTalents";
             this.listViewTalents.Size = new System.Drawing.Size(135, 85);
             this.listViewTalents.TabIndex = 11;
             this.listViewTalents.UseCompatibleStateImageBehavior = false;
             this.listViewTalents.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Nazwa";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Dod. Inf.";
             // 
             // textBoxDesc
             // 
@@ -150,8 +210,10 @@
             this.textBoxDesc.Location = new System.Drawing.Point(6, 380);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
+            this.textBoxDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxDesc.Size = new System.Drawing.Size(135, 72);
             this.textBoxDesc.TabIndex = 19;
+            this.textBoxDesc.TextChanged += new System.EventHandler(this.textBoxDesc_TextChanged);
             // 
             // labelDesc
             // 
@@ -162,25 +224,43 @@
             this.labelDesc.TabIndex = 18;
             this.labelDesc.Text = "Opis";
             // 
-            // contextMenuStrip1
+            // edytujToolStripMenuItem
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dodajToolStripMenuItem,
-            this.usuńToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(106, 48);
+            this.edytujToolStripMenuItem.Name = "edytujToolStripMenuItem";
+            this.edytujToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.edytujToolStripMenuItem.Text = "Edytuj";
+            this.edytujToolStripMenuItem.Click += new System.EventHandler(this.edytujToolStripMenuItem_Click);
             // 
-            // dodajToolStripMenuItem
+            // contextMenuStripTalent
             // 
-            this.dodajToolStripMenuItem.Name = "dodajToolStripMenuItem";
-            this.dodajToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.dodajToolStripMenuItem.Text = "Dodaj";
+            this.contextMenuStripTalent.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajToolStripMenuItem1,
+            this.edytujToolStripMenuItem1,
+            this.usuńToolStripMenuItem1});
+            this.contextMenuStripTalent.Name = "contextMenuStripTalent";
+            this.contextMenuStripTalent.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStripTalent.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripTalent_Opening);
             // 
-            // usuńToolStripMenuItem
+            // dodajToolStripMenuItem1
             // 
-            this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.usuńToolStripMenuItem.Text = "Usuń";
+            this.dodajToolStripMenuItem1.Name = "dodajToolStripMenuItem1";
+            this.dodajToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.dodajToolStripMenuItem1.Text = "Dodaj";
+            this.dodajToolStripMenuItem1.Click += new System.EventHandler(this.dodajToolStripMenuItem1_Click);
+            // 
+            // edytujToolStripMenuItem1
+            // 
+            this.edytujToolStripMenuItem1.Name = "edytujToolStripMenuItem1";
+            this.edytujToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.edytujToolStripMenuItem1.Text = "Edytuj";
+            this.edytujToolStripMenuItem1.Click += new System.EventHandler(this.edytujToolStripMenuItem1_Click);
+            // 
+            // usuńToolStripMenuItem1
+            // 
+            this.usuńToolStripMenuItem1.Name = "usuńToolStripMenuItem1";
+            this.usuńToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.usuńToolStripMenuItem1.Text = "Usuń";
+            this.usuńToolStripMenuItem1.Click += new System.EventHandler(this.usuńToolStripMenuItem1_Click);
             // 
             // God
             // 
@@ -202,7 +282,8 @@
             this.Name = "God";
             this.Size = new System.Drawing.Size(144, 455);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSymbol)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStripSkill.ResumeLayout(false);
+            this.contextMenuStripTalent.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,8 +303,17 @@
         private System.Windows.Forms.ListView listViewTalents;
         private System.Windows.Forms.TextBox textBoxDesc;
         private System.Windows.Forms.Label labelDesc;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripSkill;
         private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ToolStripMenuItem edytujToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripTalent;
+        private System.Windows.Forms.ToolStripMenuItem dodajToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem edytujToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem1;
     }
 }

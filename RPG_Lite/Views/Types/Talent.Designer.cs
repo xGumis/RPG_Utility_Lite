@@ -84,6 +84,7 @@
             this.comboBoxStat.Name = "comboBoxStat";
             this.comboBoxStat.Size = new System.Drawing.Size(121, 21);
             this.comboBoxStat.TabIndex = 19;
+            this.comboBoxStat.DropDown += new System.EventHandler(this.comboBoxStat_DropDown);
             this.comboBoxStat.SelectedIndexChanged += new System.EventHandler(this.comboBoxStat_SelectedIndexChanged);
             // 
             // numericUpDownBonus
@@ -102,6 +103,7 @@
             this.textBoxDesc.Location = new System.Drawing.Point(7, 118);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
+            this.textBoxDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxDesc.Size = new System.Drawing.Size(164, 67);
             this.textBoxDesc.TabIndex = 22;
             this.textBoxDesc.TextChanged += new System.EventHandler(this.textBoxDesc_TextChanged);

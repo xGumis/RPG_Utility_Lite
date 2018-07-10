@@ -82,11 +82,12 @@
             // 
             // numericUpDownWeight
             // 
+            this.numericUpDownWeight.DecimalPlaces = 2;
             this.numericUpDownWeight.Increment = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
-            131072});
+            65536});
             this.numericUpDownWeight.Location = new System.Drawing.Point(71, 97);
             this.numericUpDownWeight.Name = "numericUpDownWeight";
             this.numericUpDownWeight.Size = new System.Drawing.Size(63, 20);
@@ -146,6 +147,7 @@
             this.textBoxDesc.Location = new System.Drawing.Point(6, 169);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
+            this.textBoxDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxDesc.Size = new System.Drawing.Size(183, 108);
             this.textBoxDesc.TabIndex = 27;
             this.textBoxDesc.TextChanged += new System.EventHandler(this.textBoxDesc_TextChanged);

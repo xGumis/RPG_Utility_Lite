@@ -22,6 +22,6 @@ namespace RPG_Lite
         event Func<string> GetRole;
         event Action SwitchMode;
         event Func<string, object> ReadColumn;
-        event Func<string, Dictionary<string, object>[]> ReadItemList;
+        event Func<string, Dictionary<string, string>[]> ReadItemList;
     }
 }

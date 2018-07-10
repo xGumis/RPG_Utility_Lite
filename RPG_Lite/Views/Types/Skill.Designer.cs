@@ -114,6 +114,7 @@
             this.comboBoxStat.Name = "comboBoxStat";
             this.comboBoxStat.Size = new System.Drawing.Size(121, 21);
             this.comboBoxStat.TabIndex = 18;
+            this.comboBoxStat.DropDown += new System.EventHandler(this.comboBoxStat_DropDown);
             this.comboBoxStat.SelectedIndexChanged += new System.EventHandler(this.comboBoxStat_SelectedIndexChanged);
             // 
             // comboBoxType

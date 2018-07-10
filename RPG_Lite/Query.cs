@@ -150,7 +150,7 @@ namespace RPG_Lite
                         else if (tmp == Columns.Name) wr.Name = reader.GetString(i);
                         else if (tmp == Columns.Desc) wr.Description = reader.GetString(i);
                         else if (tmp == Columns.Availability) wr.Availability = reader.GetString(i);
-                        else if (tmp == Columns.Weight) wr.Weight = reader.GetFloat(i);
+                        else if (tmp == Columns.Weight) wr.Weight = (float)reader.GetDouble(i);
                         else if (tmp == Columns.Price) wr.Price = reader.GetString(i);
                     }
                     var item = new Types.Item(wr);
@@ -177,9 +177,9 @@ namespace RPG_Lite
                         else if (tmp == Columns.Weapon_Treats) wr.Treats = reader.GetString(i);
                         else if (tmp == Columns.Desc) wr.Description = reader.GetString(i);
                         else if (tmp == Columns.Availability) wr.Availability = reader.GetString(i);
-                        else if (tmp == Columns.Weight) wr.Weight = reader.GetFloat(i);
+                        else if (tmp == Columns.Weight) wr.Weight = (float)reader.GetDouble(i);
                         else if (tmp == Columns.Price) wr.Price = reader.GetString(i);
-                        else if (tmp == Columns.Weapon_Range) wr.Range = reader.GetFloat(i);
+                        else if (tmp == Columns.Weapon_Range) wr.Range = (float)reader.GetInt32(i);
                         else if (tmp == Columns.Weapon_Reload) wr.Reload = reader.GetInt32(i);
                         else if (tmp == Columns.Weapon_Dmg) wr.Damage = reader.GetString(i);
                         else if (tmp == Columns.Weapon_Category) wr.Category = reader.GetString(i);
@@ -206,7 +206,7 @@ namespace RPG_Lite
                         var tmp = reader.GetName(i); if (reader.IsDBNull(i)) continue;
                         if (tmp == Columns.Name) wr.Name = reader.GetString(i);
                         else if (tmp == Columns.Desc) wr.Description = reader.GetString(i);
-                        else if (tmp == Columns.Weight) wr.Weight = reader.GetFloat(i);
+                        else if (tmp == Columns.Weight) wr.Weight = (float)reader.GetDouble(i);
                         else if (tmp == Columns.Availability) wr.Availability = reader.GetString(i);
                         else if (tmp == Columns.Armor_Cover) wr.Cover = reader.GetString(i);
                         else if (tmp == Columns.Armor_Points) wr.Points = reader.GetInt32(i);
@@ -312,7 +312,7 @@ namespace RPG_Lite
                         {
                             var tmp = reader.GetName(i); if (reader.IsDBNull(i)) continue;
                             if (tmp == Columns.Name) wr.Name = reader.GetString(i);
-                            else if (tmp == Columns.Spell_Bonus) wr.Bonus = reader.GetInt32(i);
+                            else if (tmp == Columns.Spell_Bonus) wr.Bonus = int.Parse(reader.GetString(i));
                         }
                         spell.SupportingItem = new Types.Item(wr);
                     }
@@ -347,7 +347,8 @@ namespace RPG_Lite
                             byte[] imagebyte = reader.GetSqlBytes(i).Value;
                             var ms = new System.IO.MemoryStream();
                             ms.Write(imagebyte, 0, imagebyte.Length);
-                            wr.Symbol = new System.Drawing.Bitmap(ms);
+                            if(ms.Length > 5)
+                                wr.Symbol = new System.Drawing.Bitmap(ms);
                         }
                     }
                     pre_list.Add(wr);
@@ -764,8 +765,8 @@ namespace RPG_Lite
                         else if (tmp == Columns.Char_History) wr.History = reader.GetString(i);
                         else if (tmp == Columns.Char_EXP) wr.Exp = reader.GetInt32(i);
                         else if (tmp == Columns.Char_Age) wr.Age = reader.GetInt32(i);
-                        else if (tmp == Columns.Char_Weight) wr.Weight = reader.GetFloat(i);
-                        else if (tmp == Columns.Char_Height) wr.Height = reader.GetFloat(i);
+                        else if (tmp == Columns.Char_Weight) wr.Weight = (float)reader.GetDouble(i);
+                        else if (tmp == Columns.Char_Height) wr.Height = (float)reader.GetDouble(i);
                         else if (tmp == Columns.Id) wr.Id = reader.GetInt32(i);
                     }
                     pre_list.Add(wr);
@@ -1527,7 +1528,7 @@ namespace RPG_Lite
         public static Types.AType Rec_Items(int id)
         {
             var cmd = new SqlCommand(Commands.REC_items);
-            cmd.Parameters.AddWithValue("@item", id);
+            cmd.Parameters.AddWithValue("@itemid", id);
             SqlDataReader reader = Call_Command(cmd);
             var wr = new Types.Wrapper.WItem();
             if (reader.HasRows)
@@ -1541,7 +1542,7 @@ namespace RPG_Lite
                         else if (tmp == Columns.Name) wr.Name = reader.GetString(i);
                         else if (tmp == Columns.Desc) wr.Description = reader.GetString(i);
                         else if (tmp == Columns.Availability) wr.Availability = reader.GetString(i);
-                        else if (tmp == Columns.Weight) wr.Weight = reader.GetFloat(i);
+                        else if (tmp == Columns.Weight) wr.Weight = (float)reader.GetDouble(i);
                         else if (tmp == Columns.Price) wr.Price = reader.GetString(i);
                     }
                 }
@@ -1566,9 +1567,9 @@ namespace RPG_Lite
                         else if (tmp == Columns.Weapon_Treats) wr.Treats = reader.GetString(i);
                         else if (tmp == Columns.Desc) wr.Description = reader.GetString(i);
                         else if (tmp == Columns.Availability) wr.Availability = reader.GetString(i);
-                        else if (tmp == Columns.Weight) wr.Weight = reader.GetFloat(i);
+                        else if (tmp == Columns.Weight) wr.Weight = (float)reader.GetDouble(i);
                         else if (tmp == Columns.Price) wr.Price = reader.GetString(i);
-                        else if (tmp == Columns.Weapon_Range) wr.Range = reader.GetFloat(i);
+                        else if (tmp == Columns.Weapon_Range) wr.Range = (float)reader.GetInt32(i);
                         else if (tmp == Columns.Weapon_Reload) wr.Reload = reader.GetInt32(i);
                         else if (tmp == Columns.Weapon_Dmg) wr.Damage = reader.GetString(i);
                         else if (tmp == Columns.Weapon_Category) wr.Category = reader.GetString(i);
@@ -1593,7 +1594,7 @@ namespace RPG_Lite
                         var tmp = reader.GetName(i); if (reader.IsDBNull(i)) continue;
                         if (tmp == Columns.Name) wr.Name = reader.GetString(i);
                         else if (tmp == Columns.Desc) wr.Description = reader.GetString(i);
-                        else if (tmp == Columns.Weight) wr.Weight = reader.GetFloat(i);
+                        else if (tmp == Columns.Weight) wr.Weight = (float)reader.GetDouble(i);
                         else if (tmp == Columns.Armor_Cover) wr.Cover = reader.GetString(i);
                         else if (tmp == Columns.Armor_Points) wr.Points = reader.GetInt32(i);
                     }
@@ -1682,7 +1683,7 @@ namespace RPG_Lite
                     {
                         var tmp = reader.GetName(i); if (reader.IsDBNull(i)) continue;
                         if (tmp == Columns.Name) a.Name = reader.GetString(i);
-                        else if (tmp == Columns.Spell_Bonus) a.Bonus = reader.GetInt32(i);
+                        else if (tmp == Columns.Spell_Bonus) a.Bonus = int.Parse(reader.GetString(i));
                     }
                 }
                 wr.SupportingItem = new Types.Item(a);
@@ -2060,8 +2061,8 @@ namespace RPG_Lite
                         else if (tmp == Columns.Char_History) wr.History = reader.GetString(i);
                         else if (tmp == Columns.Char_EXP) wr.Exp = reader.GetInt32(i);
                         else if (tmp == Columns.Char_Age) wr.Age = reader.GetInt32(i);
-                        else if (tmp == Columns.Char_Weight) wr.Weight = reader.GetFloat(i);
-                        else if (tmp == Columns.Char_Height) wr.Height = reader.GetFloat(i);
+                        else if (tmp == Columns.Char_Weight) wr.Weight = (float)reader.GetDouble(i);
+                        else if (tmp == Columns.Char_Height) wr.Height = (float)reader.GetDouble(i);
                         else if (tmp == Columns.Id) wr.Id = reader.GetInt32(i);
                     }
                 }

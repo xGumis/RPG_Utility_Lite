@@ -33,6 +33,15 @@ namespace RPG_Lite.Views.Types
             textBoxCover.Text = cover as string;
             numericUpDownWeight.Value = decimal.Parse(weight.ToString());
         }
+        public void OnlyRead()
+        {
+            textBoxName.ReadOnly = true;
+            textBoxDesc.ReadOnly = true;
+            textBoxCover.ReadOnly = true;
+            comboBoxAvailability.Enabled = false;
+            numericUpDownWeight.Enabled = false;
+            numericUpDownPoints.Enabled = false;
+        }
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             UpdateItem(Columns.Name, textBoxName.Text);

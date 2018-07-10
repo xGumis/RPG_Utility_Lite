@@ -124,6 +124,42 @@
     <Compile Include="Views\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Supplementary\AddInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Supplementary\AddInfo.Designer.cs">
+      <DependentUpon>AddInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Supplementary\CharSki.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Supplementary\CharSki.Designer.cs">
+      <DependentUpon>CharSki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Supplementary\CharStat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Supplementary\CharStat.Designer.cs">
+      <DependentUpon>CharStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Supplementary\Combo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Supplementary\Combo.Designer.cs">
+      <DependentUpon>Combo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Supplementary\Items.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Supplementary\Items.Designer.cs">
+      <DependentUpon>Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Supplementary\Value.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Supplementary\Value.Designer.cs">
+      <DependentUpon>Value.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Types\Armor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -218,6 +254,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Supplementary\AddInfo.resx">
+      <DependentUpon>AddInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Supplementary\CharSki.resx">
+      <DependentUpon>CharSki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Supplementary\CharStat.resx">
+      <DependentUpon>CharStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Supplementary\Combo.resx">
+      <DependentUpon>Combo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Supplementary\Items.resx">
+      <DependentUpon>Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Supplementary\Value.resx">
+      <DependentUpon>Value.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Types\Armor.resx">
       <DependentUpon>Armor.cs</DependentUpon>

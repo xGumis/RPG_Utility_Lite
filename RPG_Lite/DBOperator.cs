@@ -1216,20 +1216,21 @@ namespace RPG_Lite
             }
             return null;
         }
-        public Dictionary<string,object>[] ReadList(string column)
+        public Dictionary<string,string>[] ReadList(string column)
         {
             if (viewItem != null)
             {
-                var a = new List<Dictionary<string, object>>();
+                var a = new List<Dictionary<string, string>>();
                 #region Bogowie
                 if (viewItem is Types.God)
                 {
                     var god = viewItem as Types.God;
                     if (column == Columns.Con_Talent)
                     {
-                        foreach (var talent in god.Talents)
+                        if (god.Talents != null)
+                            foreach (var talent in god.Talents)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name, talent.Name);
                             b.Add(Columns.Add_Info, talent.AdditionalInfo);
                             a.Add(b);
@@ -1237,9 +1238,10 @@ namespace RPG_Lite
                     }
                     if (column == Columns.Con_Skill)
                     {
-                        foreach (var skill in god.Skills)
+                        if (god.Skills != null)
+                            foreach (var skill in god.Skills)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name, skill.Name);
                             b.Add(Columns.Add_Info, skill.AdditionalInfo);
                             a.Add(b);
@@ -1253,9 +1255,10 @@ namespace RPG_Lite
                     var career = viewItem as Types.Career;
                     if (column == Columns.Con_Talent)
                     {
-                        foreach (var talent in career.AvailableTalents)
+                        if (career.AvailableTalents != null)
+                            foreach (var talent in career.AvailableTalents)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name, talent.Name);
                             b.Add(Columns.Add_Info, talent.AdditionalInfo);
                             a.Add(b);
@@ -1263,9 +1266,10 @@ namespace RPG_Lite
                     }
                     if (column == Columns.Con_Skill)
                     {
-                        foreach (var skill in career.AvailableSkills)
+                        if (career.AvailableSkills != null)
+                            foreach (var skill in career.AvailableSkills)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name, skill.Name);
                             b.Add(Columns.Add_Info, skill.AdditionalInfo);
                             a.Add(b);
@@ -1273,47 +1277,52 @@ namespace RPG_Lite
                     }
                     if (column == Columns.Con_stat)
                     {
-                        foreach (var stat in career.StatsScheme)
+                        if (career.StatsScheme != null)
+                            foreach (var stat in career.StatsScheme)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name, stat.Name);
-                            b.Add(Columns.Con_AdvStat, stat.Advance);
+                            b.Add(Columns.Con_AdvStat, stat.Advance.ToString());
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Item)
                     {
-                        foreach (var item in career.StartEquipment)
+                        if (career.StartEquipment != null)
+                            foreach (var item in career.StartEquipment)
                         {
-                            var b = new Dictionary<string, object>();
-                            b.Add(Columns.Id, item.Id);
+                            var b = new Dictionary<string, string>();
+                            b.Add(Columns.Id, item.Id.ToString());
                             b.Add(Columns.Name, item.Name);
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Weapon)
                     {
-                        foreach (var weapon in career.StartWeapons)
+                        if (career.StartWeapons != null)
+                            foreach (var weapon in career.StartWeapons)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name, weapon.Name);
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Armor)
                     {
-                        foreach (var armor in career.StartArmor)
+                        if (career.StartArmor != null)
+                            foreach (var armor in career.StartArmor)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name, armor.Name);
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Career)
                     {
-                        foreach (var car in career.AvailableCareer)
+                        if (career.AvailableCareer != null)
+                            foreach (var car in career.AvailableCareer)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name, car.Name);
                             a.Add(b);
                         }
@@ -1326,9 +1335,10 @@ namespace RPG_Lite
                     var race = viewItem as Types.Race;
                     if (column == Columns.Con_Talent)
                     {
+                        if(race.StartingTalents != null)
                         foreach (var talent in race.StartingTalents)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,talent.Name);
                             b.Add(Columns.Add_Info,talent.AdditionalInfo);
                             a.Add(b);
@@ -1336,9 +1346,10 @@ namespace RPG_Lite
                     }
                     if (column == Columns.Con_Skill)
                     {
-                        foreach (var skill in race.StartingSkills)
+                        if (race.StartingSkills != null)
+                            foreach (var skill in race.StartingSkills)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,skill.Name);
                             b.Add(Columns.Add_Info,skill.AdditionalInfo);
                             a.Add(b);
@@ -1346,19 +1357,21 @@ namespace RPG_Lite
                     }
                     if (column == Columns.Con_stat)
                     {
-                        foreach (var stat in race.StartingStats)
+                        if (race.StartingStats != null)
+                            foreach (var stat in race.StartingStats)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,stat.Name);
-                            b.Add(Columns.Con_StartStat, stat.Starting);
+                            b.Add(Columns.Con_StartStat, stat.Starting.ToString());
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Career)
                     {
-                        foreach (var car in race.PossibleCareer)
+                        if (race.PossibleCareer != null)
+                            foreach (var car in race.PossibleCareer)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,car.Name);
                             a.Add(b);
                         }
@@ -1371,9 +1384,10 @@ namespace RPG_Lite
                     var character = viewItem as Types.Character;
                     if (column == Columns.Con_Talent)
                     {
-                        foreach (var talent in character.Talents)
+                        if (character.Talents != null)
+                            foreach (var talent in character.Talents)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,talent.Name);
                             b.Add(Columns.Add_Info,talent.AdditionalInfo);
                             a.Add(b);
@@ -1381,69 +1395,75 @@ namespace RPG_Lite
                     }
                     if (column == Columns.Con_Skill)
                     {
-                        foreach (var skill in character.Skills)
+                        if (character.Skills != null)
+                            foreach (var skill in character.Skills)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,skill.Name);
                             b.Add(Columns.Add_Info,skill.AdditionalInfo);
-                            b.Add(Columns.Level,skill.Level);
+                            b.Add(Columns.Level,skill.Level.ToString());
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_stat)
                     {
-                        foreach (var stat in character.Stats)
+                        if (character.Stats != null)
+                            foreach (var stat in character.Stats)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,stat.Name);
-                            b.Add(Columns.Con_StartStat,stat.Starting);
-                            b.Add(Columns.Con_AdvStat,stat.Advance);
-                            b.Add(Columns.Con_CurrStat,stat.Current);
+                            b.Add(Columns.Con_StartStat,stat.Starting.ToString());
+                            b.Add(Columns.Con_AdvStat,stat.Advance.ToString());
+                            b.Add(Columns.Con_CurrStat,stat.Current.ToString());
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Item)
                     {
-                        foreach (var item in character.Items)
+                        if (character.Items != null)
+                            foreach (var item in character.Items)
                         {
-                            var b = new Dictionary<string, object>();
-                            b.Add(Columns.Id,item.Id);
+                            var b = new Dictionary<string, string>();
+                            b.Add(Columns.Id,item.Id.ToString());
                             b.Add(Columns.Add_Info,item.AdditionalInfo);
                             b.Add(Columns.Quality,item.Quality);
-                            b.Add(Columns.Quantity,item.Quantity);
+                            b.Add(Columns.Quantity,item.Quantity.ToString());
                             b.Add(Columns.Name, item.Name);
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Weapon)
                     {
-                        foreach (var weapon in character.Weapons)
+                        if (character.Weapons != null)
+                            foreach (var weapon in character.Weapons)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,weapon.Name);
                             b.Add(Columns.Quality,weapon.Quality);
-                            b.Add(Columns.Quantity,weapon.Quantity);
-                            b.Add(Columns.Con_Equipped,weapon.Equipped);
+                            b.Add(Columns.Quantity,weapon.Quantity.ToString());
+                            b.Add(Columns.Con_Equipped,weapon.Equipped.ToString());
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Armor)
                     {
-                        foreach (var armor in character.Armor)
+                        if (character.Armor != null)
+                            foreach (var armor in character.Armor)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,armor.Name);
                             b.Add(Columns.Quality,armor.Quality);
-                            b.Add(Columns.Quantity,armor.Quantity);
-                            b.Add(Columns.Con_Equipped,armor.Equipped);
+                            b.Add(Columns.Quantity,armor.Quantity.ToString());
+                            b.Add(Columns.Con_Equipped,armor.Equipped.ToString());
                             a.Add(b);
                         }
                     }
                     if (column == Columns.Con_Spell)
                     {
-                        foreach (var car in character.Spells)
+                        if (character.Spells != null)
+                            foreach (var car in character.Spells)
                         {
-                            var b = new Dictionary<string, object>();
+                            var b = new Dictionary<string, string>();
                             b.Add(Columns.Name,car.Name);
                             a.Add(b);
                         }

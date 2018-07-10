@@ -31,7 +31,7 @@ namespace RPG_Lite
             view.ReadItemList += View_ReadItemList;
         }
 
-        private Dictionary<string, object>[] View_ReadItemList(string column)
+        private Dictionary<string, string>[] View_ReadItemList(string column)
         {
             return model.ReadList(column);
         }
