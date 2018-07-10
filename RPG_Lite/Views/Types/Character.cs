@@ -18,6 +18,7 @@ namespace RPG_Lite.Views.Types
         public event Func<string, object> ReadColumn;
         public event Func<string, List<string[]>> GetList;
         private ListViewItem hold;
+        private string id;
         public Character()
         {
             InitializeComponent();
@@ -333,7 +334,12 @@ namespace RPG_Lite.Views.Types
                 {
                     dic.Add(Columns.Name, item.Text);
                     if (item.SubItems.Count > 1)
-                        dic.Add(Columns.Con_AdvStat, item.SubItems[1].Text);
+                    {
+
+                        dic.Add(Columns.Con_AdvStat, item.SubItems[2].Text);
+                        dic.Add(Columns.Con_CurrStat, item.SubItems[3].Text);
+                        dic.Add(Columns.Con_StartStat, item.SubItems[1].Text);
+                    }
                 }
                 else if (list == "Item")
                 {
@@ -388,7 +394,7 @@ namespace RPG_Lite.Views.Types
         }
         private void Window_UpdateItemIt(string col, string val)
         {
-            if (col == Columns.Id) hold.Tag = val;
+            if (col == Columns.Id) id = val;
             else if (col == Columns.Name)
                 hold.Text = val;
             else if(col == Columns.Quality)
@@ -396,27 +402,46 @@ namespace RPG_Lite.Views.Types
                 if (hold.SubItems.Count > 1)
                     hold.SubItems[1].Text = val.ToString();
                 else
+                {
                     hold = new ListViewItem(new string[] { hold.Text, val.ToString() });
+                    hold.Tag = id;
+                }
             }
             else if (col == Columns.Quantity)
             {
                 if (hold.SubItems.Count > 2)
                     hold.SubItems[2].Text = val.ToString();
                 else if (hold.SubItems.Count > 1)
+                {
                     hold = new ListViewItem(new string[] { hold.Text, hold.SubItems[1].Text, val.ToString() });
+                    hold.Tag = id;
+                }
                 else
+                {
                     hold = new ListViewItem(new string[] { hold.Text, "", val.ToString() });
+                    hold.Tag = id;
+                }
             }
             else
             {
                 if (hold.SubItems.Count > 3)
                     hold.SubItems[3].Text = val.ToString();
                 else if (hold.SubItems.Count > 2)
+                {
                     hold = new ListViewItem(new string[] { hold.Text, hold.SubItems[1].Text, hold.SubItems[2].Text, val.ToString() });
+                    hold.Tag = id;
+                }
                 else if (hold.SubItems.Count > 1)
+                {
                     hold = new ListViewItem(new string[] { hold.Text, hold.SubItems[1].Text, "", val.ToString() });
+                    hold.Tag = id;
+                }
                 else
-                    hold = new ListViewItem(new string[] { hold.Text, "","", val.ToString() });
+                {
+
+                    hold = new ListViewItem(new string[] { hold.Text, "", "", val.ToString() });
+                    hold.Tag = id;
+                }
             }
         }
         private object Window_ReadColumn(string col)

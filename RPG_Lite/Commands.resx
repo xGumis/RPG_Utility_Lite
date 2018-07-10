@@ -370,7 +370,7 @@
     <value>DELETE FROM n_uni.bronie WHERE nazwa = @weapon;</value>
   </data>
   <data name="ADD_character" xml:space="preserve">
-    <value>INSERT INTO uni.postacie (czczone_bostwo,rasa,profesja,nazwa,plec,kolor_oczu,kolor_wlosow,wiek,waga,wzrost,znak_gwiezdny,znaki_szczegolne,miejsce_urodzenia,rodzina,zaburzenia_psychiczne,blizny_i_rany,historia,dod_info,XP) VALUES (@god,@race,@career,@name,@gender,@eyecolor,@haircolor,@age,@weight,@height,@starsign,@features,@birthplace,@family,@mentalcondition,@scars,@history,@addinfo,@exp);</value>
+    <value>INSERT INTO uni.postacie (czczone_bostwo,rasa,profesja,nazwa,plec,kolor_oczu,kolor_wlosow,wiek,waga,wzrost,znak_gwiezdny,znaki_szczegolne,miejsce_urodzenia,rodzina,zaburzenia_psychiczne,blizny_i_rany,historia,dod_inf,XP) VALUES (@god,@race,@career,@name,@gender,@eyecolor,@haircolor,@age,@weight,@height,@starsign,@features,@birthplace,@family,@mentalcondition,@scars,@history,@addinfo,@exp);</value>
   </data>
   <data name="ADD_char_armor" xml:space="preserve">
     <value>INSERT INTO uni.pos_pan (id_postaci,pancerz,jakosc,zaekwipowany,ilosc) VALUES (@charcter,@armor,@quality,@equipped,@quantity);</value>
@@ -382,7 +382,7 @@
     <value>INSERT INTO uni.pos_umi (id_postaci,umiejetnosc,poziom,dod_inf) VALUES (@charcter,@skill,@level,@addinfo);</value>
   </data>
   <data name="ADD_char_spell" xml:space="preserve">
-    <value>INSERT INTO uni.pos.zak (id_postaci,zaklecie) VALUES (@character,@spell);</value>
+    <value>INSERT INTO uni.pos_zak (id_postaci,zaklecie) VALUES (@character,@spell);</value>
   </data>
   <data name="ADD_char_stat" xml:space="preserve">
     <value>INSERT INTO uni.pos_cec (id_postaci,cecha,wartosc_poczatkowa,schemat_rozwoju,aktualna_wartosc) VALUES (@charcter,@stat,@start,@adv,@curr);</value>

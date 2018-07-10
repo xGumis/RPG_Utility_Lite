@@ -64,6 +64,7 @@ namespace RPG_Lite.Views.Supplementary
         {
 
             UpdateItem(Columns.Name, comboBox.Text);
+            UpdateItem(Columns.Id, list[comboBox.SelectedIndex][0]);
         }
 
         private void comboBox_DropDown(object sender, EventArgs e)

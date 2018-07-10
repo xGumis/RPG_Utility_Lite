@@ -1230,7 +1230,7 @@ namespace RPG_Lite
                 {
                     cmd = new SqlCommand(Commands.ADD_char_skill);
                     cmd.Parameters.AddWithValue("@skill", skill.Key);
-                    cmd.Parameters.AddWithValue("@character", character.Key);
+                    cmd.Parameters.AddWithValue("@charcter", character.Key);
                     cmd.Parameters.AddWithValue("@addinfo", skill.AdditionalInfo);
                     cmd.Parameters.AddWithValue("@level", skill.Level);
                     Call_Command(cmd);
@@ -1241,7 +1241,7 @@ namespace RPG_Lite
                 {
                     cmd = new SqlCommand(Commands.ADD_char_talent);
                     cmd.Parameters.AddWithValue("@talent", talent.Key);
-                    cmd.Parameters.AddWithValue("@character", character.Key);
+                    cmd.Parameters.AddWithValue("@charcter", character.Key);
                     cmd.Parameters.AddWithValue("@addinfo", talent.AdditionalInfo);
                     Call_Command(cmd);
                     conn.Close();
@@ -1251,7 +1251,7 @@ namespace RPG_Lite
                 {
                     cmd = new SqlCommand(Commands.ADD_char_stat);
                     cmd.Parameters.AddWithValue("@stat", stat.Key);
-                    cmd.Parameters.AddWithValue("@character", character.Key);
+                    cmd.Parameters.AddWithValue("@charcter", character.Key);
                     cmd.Parameters.AddWithValue("@start", stat.Starting);
                     cmd.Parameters.AddWithValue("@adv", stat.Advance);
                     cmd.Parameters.AddWithValue("@curr", stat.Current);
@@ -1271,7 +1271,7 @@ namespace RPG_Lite
                 foreach (Types.Armor armor in character.Armor)
                 {
                     cmd = new SqlCommand(Commands.ADD_char_armor);
-                    cmd.Parameters.AddWithValue("@character", character.Key);
+                    cmd.Parameters.AddWithValue("@charcter", character.Key);
                     cmd.Parameters.AddWithValue("@armor", armor.Key);
                     cmd.Parameters.AddWithValue("@quality", armor.Quality);
                     cmd.Parameters.AddWithValue("@equipped", armor.Equipped);
@@ -1283,7 +1283,7 @@ namespace RPG_Lite
                 foreach (Types.Weapon weapon in character.Weapons)
                 {
                     cmd = new SqlCommand(Commands.ADD_char_weapon);
-                    cmd.Parameters.AddWithValue("@character", character.Key);
+                    cmd.Parameters.AddWithValue("@charcter", character.Key);
                     cmd.Parameters.AddWithValue("@weapon", weapon.Key);
                     cmd.Parameters.AddWithValue("@quality", weapon.Quality);
                     cmd.Parameters.AddWithValue("@equipped", weapon.Equipped);
@@ -1295,7 +1295,7 @@ namespace RPG_Lite
                 foreach (Types.Item item in character.Items)
                 {
                     cmd = new SqlCommand(Commands.ADD_char_item);
-                    cmd.Parameters.AddWithValue("@character", character.Key);
+                    cmd.Parameters.AddWithValue("@charcter", character.Key);
                     cmd.Parameters.AddWithValue("@item", item.Key);
                     cmd.Parameters.AddWithValue("@quality", item.Quality);
                     cmd.Parameters.AddWithValue("@addinfo", item.AdditionalInfo);

@@ -42,7 +42,7 @@ namespace RPG_Lite.Views.Supplementary
 
         private void numericUpDownB_ValueChanged(object sender, EventArgs e)
         {
-            UpdateItem(Columns.Name, comboBox.Text);
+            UpdateItem(Columns.Con_StartStat, numericUpDownB.Value.ToString());
         }
 
         private void numericUpDownS_ValueChanged(object sender, EventArgs e)
@@ -52,12 +52,12 @@ namespace RPG_Lite.Views.Supplementary
 
         private void numericUpDownA_ValueChanged(object sender, EventArgs e)
         {
-            UpdateItem(Columns.Con_StartStat, numericUpDownB.Value.ToString());
+            UpdateItem(Columns.Con_CurrStat, numericUpDownA.Value.ToString());
         }
 
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateItem(Columns.Con_CurrStat, numericUpDownA.Value.ToString());
+            UpdateItem(Columns.Name, comboBox.Text);
         }
 
         private void comboBox_DropDown(object sender, EventArgs e)

@@ -169,7 +169,7 @@ namespace RPG_Lite {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO uni.pos.zak (id_postaci,zaklecie) VALUES (@character,@spell);.
+        ///   Looks up a localized string similar to INSERT INTO uni.pos_zak (id_postaci,zaklecie) VALUES (@character,@spell);.
         /// </summary>
         internal static string ADD_char_spell {
             get {
@@ -205,7 +205,7 @@ namespace RPG_Lite {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO uni.postacie (czczone_bostwo,rasa,profesja,nazwa,plec,kolor_oczu,kolor_wlosow,wiek,waga,wzrost,znak_gwiezdny,znaki_szczegolne,miejsce_urodzenia,rodzina,zaburzenia_psychiczne,blizny_i_rany,historia,dod_info,XP) VALUES (@god,@race,@career,@name,@gender,@eyecolor,@haircolor,@age,@weight,@height,@starsign,@features,@birthplace,@family,@mentalcondition,@scars,@history,@addinfo,@exp);.
+        ///   Looks up a localized string similar to INSERT INTO uni.postacie (czczone_bostwo,rasa,profesja,nazwa,plec,kolor_oczu,kolor_wlosow,wiek,waga,wzrost,znak_gwiezdny,znaki_szczegolne,miejsce_urodzenia,rodzina,zaburzenia_psychiczne,blizny_i_rany,historia,dod_inf,XP) VALUES (@god,@race,@career,@name,@gender,@eyecolor,@haircolor,@age,@weight,@height,@starsign,@features,@birthplace,@family,@mentalcondition,@scars,@history,@addinfo,@exp);.
         /// </summary>
         internal static string ADD_character {
             get {
